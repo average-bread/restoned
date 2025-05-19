@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "cursedbread.restoned.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [
+    "NewCobbleObtainingMixin"
+  ],
+  "client": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

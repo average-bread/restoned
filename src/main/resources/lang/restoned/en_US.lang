@@ -1,0 +1,15 @@
+tile.restoned.cobble.marble.name=Cobbled Marble
+tile.restoned.cobble.marble.desc=Marble, smashed apart and reconstituted.
+
+tile.restoned.slab.cobble.marble.name=Cobbled Marble Slab
+tile.restoned.slab.cobble.marble.desc=A slab of cobbled marble.
+tile.restoned.stairs.cobble.marble.name=Cobbled Marble Stairs
+tile.restoned.stairs.cobble.marble.desc=Cobbled marble block used for rapid vertical movement.
+
+tile.restoned.cobble.slate.name=Cobbled Slate
+tile.restoned.cobble.slate.desc=Slate, smashed apart and reconstituted.
+
+tile.restoned.slab.cobble.slate.name=Cobbled Slate Slab
+tile.restoned.slab.cobble.slate.desc=A slab of cobbled slate.
+tile.restoned.stairs.cobble.slate.name=Cobbled Slate Stairs
+tile.restoned.stairs.cobble.slate.desc=Cobbled slate block used for rapid vertical movement.
