@@ -4,7 +4,8 @@
   "package": "cursedbread.restoned.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
-    "NewCobbleObtainingMixin"
+    "NewCobbleObtainingMixin",
+    "NewStoneToMossMixin"
   ],
   "client": [
   ],

@@ -13,3 +13,78 @@ tile.restoned.slab.cobble.slate.name=Cobbled Slate Slab
 tile.restoned.slab.cobble.slate.desc=A slab of cobbled slate.
 tile.restoned.stairs.cobble.slate.name=Cobbled Slate Stairs
 tile.restoned.stairs.cobble.slate.desc=Cobbled slate block used for rapid vertical movement.
+
+tile.restoned.cobble.basalt.mossy.name=Mossy Cobbled Basalt
+tile.restoned.cobble.basalt.mossy.desc=Cobbled basalt with added greenery.
+tile.restoned.cobble.limestone.mossy.name=Mossy Cobbled Limestone
+tile.restoned.cobble.limestone.mossy.desc=Cobbled limestone with added greenery.
+tile.restoned.cobble.granite.mossy.name=Mossy Cobbled Granite
+tile.restoned.cobble.granite.mossy.desc=Cobbled granite with added greenery.
+tile.restoned.cobble.marble.mossy.name=Mossy Cobbled Marble
+tile.restoned.cobble.marble.mossy.desc=Cobbled marble with added greenery.
+tile.restoned.cobble.slate.mossy.name=Mossy Cobbled Slate
+tile.restoned.cobble.slate.mossy.desc=Cobbled slate with added greenery.
+tile.restoned.cobble.permafrost.mossy.name=Mossy Cobbled Permafrost
+tile.restoned.cobble.permafrost.mossy.desc=Cobbled permafrost with added greenery.
+
+tile.restoned.pillar.stone.name=Stone Pillar
+tile.restoned.pillar.stone.desc=A block of stone engraved into a pillar.
+tile.restoned.pillar.basalt.name=Basalt Pillar
+tile.restoned.pillar.basalt.desc=A block of basalt engraved into a pillar.
+tile.restoned.pillar.limestone.name=Limestone Pillar
+tile.restoned.pillar.limestone.desc=A block of limestone engraved into a pillar.
+tile.restoned.pillar.granite.name=Granite Pillar
+tile.restoned.pillar.granite.desc=A block of granite engraved into a pillar.
+tile.restoned.pillar.slate.name=Slate Pillar
+tile.restoned.pillar.slate.desc=A block of slate engraved into a pillar.
+tile.restoned.pillar.permafrost.name=Permafrost Pillar
+tile.restoned.pillar.permafrost.desc=A block of permafrost engraved into a pillar.
+tile.restoned.pillar.netherrack.name=Netherrack Pillar
+tile.restoned.pillar.netherrack.desc=A block of netherrack engraved into a pillar.
+
+tile.restoned.slab.marble.carved.name=Polished Marble Slab
+tile.restoned.slab.marble.carved.desc=A slab of polished marble.
+tile.restoned.slab.slate.carved.name=Polished Slate Slab
+tile.restoned.slab.slate.carved.desc=A slab of polished slate.
+
+tile.restoned.marble.carved.name=Carved Marble
+tile.restoned.marble.carved.desc=Polished Marble with lines hewn through the middle.
+tile.restoned.slate.carved.name=Carved Slate
+tile.restoned.slate.carved.desc=Polished Slate with lines hewn through the middle.
+
+tile.restoned.marble.polished.name=Polished Marble
+tile.restoned.marble.polished.desc=A polished block of marble.
+
+tile.restoned.stairs.brick.marble.name=Marble Brick Stairs
+tile.restoned.stairs.brick.marble.desc=Marble brick block used for rapid vertical movement.
+
+tile.restoned.capstone.stone.name=Stone Capstone
+tile.restoned.capstone.stone.desc=A pillar capstone made of solid stone.
+tile.restoned.capstone.basalt.name=Basalt Capstone
+tile.restoned.capstone.basalt.desc=A pillar capstone made of solid basalt.
+tile.restoned.capstone.limestone.name=Limestone Capstone
+tile.restoned.capstone.limestone.desc=A pillar capstone made of solid limestone.
+tile.restoned.capstone.granite.name=Granite Capstone
+tile.restoned.capstone.granite.desc=A pillar capstone made of solid granite.
+tile.restoned.capstone.slate.name=Slate Capstone
+tile.restoned.capstone.slate.desc=A pillar capstone made of solid slate.
+tile.restoned.capstone.permafrost.name=Permafrost Capstone
+tile.restoned.capstone.permafrost.desc=A pillar capstone made of solid permafrost.
+tile.restoned.capstone.netherrack.name=Netherrack Capstone
+tile.restoned.capstone.netherrack.desc=A pillar capstone made of solid netherrack.
+
+tile.restoned.slab.capstone.stone.name=Stone Capstone Slab
+tile.restoned.slab.capstone.stone.desc=Stone sculpted into a capstone.
+tile.restoned.slab.capstone.basalt.name=Basalt Capstone Slab
+tile.restoned.slab.capstone.basalt.desc=Basalt sculpted into a capstone.
+tile.restoned.slab.capstone.limestone.name=Limestone Capstone Slab
+tile.restoned.slab.capstone.limestone.desc=Limestone sculpted into a capstone.
+tile.restoned.slab.capstone.granite.name=Granite Capstone Slab
+tile.restoned.slab.capstone.granite.desc=Granite sculpted into a capstone.
+tile.restoned.slab.capstone.slate.name=Slate Capstone Slab
+tile.restoned.slab.capstone.slate.desc=Slate sculpted into a capstone.
+tile.restoned.slab.capstone.permafrost.name=Permafrost Capstone Slab
+tile.restoned.slab.capstone.permafrost.desc=Permafrost sculpted into a capstone.
+tile.restoned.slab.capstone.netherrack.name=Netherrack Capstone Slab
+tile.restoned.slab.capstone.netherrack.desc=Netherrack sculpted into a capstone.
+
