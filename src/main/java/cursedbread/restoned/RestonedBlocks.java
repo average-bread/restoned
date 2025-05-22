@@ -1,9 +1,13 @@
 package cursedbread.restoned;
 
+import cursedbread.restoned.logics.BlockLogicCustomMotionSensor;
 import net.minecraft.core.block.*;
 import net.minecraft.core.block.material.Material;
+import net.minecraft.core.block.material.MaterialColor;
 import net.minecraft.core.block.tag.BlockTags;
 import net.minecraft.core.data.tag.Tag;
+import net.minecraft.core.entity.Mob;
+import net.minecraft.core.entity.player.Player;
 import net.minecraft.core.item.ItemStack;
 import net.minecraft.core.sound.BlockSound;
 import net.minecraft.core.sound.BlockSounds;
@@ -67,6 +71,41 @@ public class RestonedBlocks {
 	public static Block <?> CAPSTONE_SLATE;
 	public static Block <?> CAPSTONE_PERMAFROST;
 	public static Block <?> CAPSTONE_NETHERRACK;
+
+	public static Block <?> BUTTON_BASALT;
+	public static Block <?> BUTTON_LIMESTONE;
+	public static Block <?> BUTTON_GRANITE;
+	public static Block <?> BUTTON_MARBLE;
+	public static Block <?> BUTTON_SLATE;
+	public static Block <?> BUTTON_PERMAFROST;
+	public static Block <?> BUTTON_NETHERRACK;
+
+	public static Block <?> LEVER_COBBLE_BASALT;
+	public static Block <?> LEVER_COBBLE_LIMESTONE;
+	public static Block <?> LEVER_COBBLE_GRANITE;
+	public static Block <?> LEVER_COBBLE_MARBLE;
+	public static Block <?> LEVER_COBBLE_SLATE;
+	public static Block <?> LEVER_COBBLE_PERMAFROST;
+	public static Block <?> LEVER_COBBLE_NETHERRACK;
+
+	public static Block <?> PRESSURE_PLATE_BASALT;
+	public static Block <?> PRESSURE_PLATE_LIMESTONE;
+	public static Block <?> PRESSURE_PLATE_GRANITE;
+	public static Block <?> PRESSURE_PLATE_MARBLE;
+	public static Block <?> PRESSURE_PLATE_SLATE;
+	public static Block <?> PRESSURE_PLATE_PERMAFROST;
+	public static Block <?> PRESSURE_PLATE_NETHERRACK;
+
+	public static Block <?> PRESSURE_PLATE_COBBLE_BASALT;
+	public static Block <?> PRESSURE_PLATE_COBBLE_LIMESTONE;
+	public static Block <?> PRESSURE_PLATE_COBBLE_GRANITE;
+	public static Block <?> PRESSURE_PLATE_COBBLE_MARBLE;
+	public static Block <?> PRESSURE_PLATE_COBBLE_SLATE;
+	public static Block <?> PRESSURE_PLATE_COBBLE_PERMAFROST;
+	public static Block <?> PRESSURE_PLATE_COBBLE_NETHERRACK;
+
+	public static Block <BlockLogicMotionSensor> BASALT_MOTION_SENSOR_IDLE;
+	public static Block <BlockLogicMotionSensor> BASALT_MOTION_SENSOR_ACTIVE;
 
 	public void initBlockDetails(){
 
@@ -329,6 +368,196 @@ public class RestonedBlocks {
 			.setTags(new Tag[]{BlockTags.NOT_IN_CREATIVE_MENU, BlockTags.MINEABLE_BY_PICKAXE})
 			.build("capstone.netherrack", blockId++, b -> new BlockLogic(b, Material.netherrack))
 			.withDisabledNeighborNotifyOnMetadataChange();
+
+		BUTTON_BASALT = new BlockBuilder(RestonedMain.MOD_ID)
+			.setBlockSound(BlockSounds.STONE)
+			.setHardness(0.5F)
+			.setTags(new Tag[]{BlockTags.BROKEN_BY_FLUIDS, BlockTags.MINEABLE_BY_PICKAXE, BlockTags.PREVENT_MOB_SPAWNS})
+			.build("button.basalt", blockId++, b -> new BlockLogicButton(b))
+			.withDisabledNeighborNotifyOnMetadataChange();
+		BUTTON_LIMESTONE = new BlockBuilder(RestonedMain.MOD_ID)
+			.setBlockSound(BlockSounds.STONE)
+			.setHardness(0.5F)
+			.setTags(new Tag[]{BlockTags.BROKEN_BY_FLUIDS, BlockTags.MINEABLE_BY_PICKAXE, BlockTags.PREVENT_MOB_SPAWNS})
+			.build("button.limestone", blockId++, b -> new BlockLogicButton(b))
+			.withDisabledNeighborNotifyOnMetadataChange();
+		BUTTON_GRANITE = new BlockBuilder(RestonedMain.MOD_ID)
+			.setBlockSound(BlockSounds.STONE)
+			.setHardness(0.5F)
+			.setTags(new Tag[]{BlockTags.BROKEN_BY_FLUIDS, BlockTags.MINEABLE_BY_PICKAXE, BlockTags.PREVENT_MOB_SPAWNS})
+			.build("button.granite", blockId++, b -> new BlockLogicButton(b))
+			.withDisabledNeighborNotifyOnMetadataChange();
+		BUTTON_MARBLE = new BlockBuilder(RestonedMain.MOD_ID)
+			.setBlockSound(BlockSounds.STONE)
+			.setHardness(0.5F)
+			.setTags(new Tag[]{BlockTags.BROKEN_BY_FLUIDS, BlockTags.MINEABLE_BY_PICKAXE, BlockTags.PREVENT_MOB_SPAWNS})
+			.build("button.marble", blockId++, b -> new BlockLogicButton(b))
+			.withDisabledNeighborNotifyOnMetadataChange();
+		BUTTON_SLATE = new BlockBuilder(RestonedMain.MOD_ID)
+			.setBlockSound(BlockSounds.STONE)
+			.setHardness(0.5F)
+			.setTags(new Tag[]{BlockTags.BROKEN_BY_FLUIDS, BlockTags.MINEABLE_BY_PICKAXE, BlockTags.PREVENT_MOB_SPAWNS})
+			.build("button.slate", blockId++, b -> new BlockLogicButton(b))
+			.withDisabledNeighborNotifyOnMetadataChange();
+		BUTTON_PERMAFROST = new BlockBuilder(RestonedMain.MOD_ID)
+			.setBlockSound(BlockSounds.PERMAFROST)
+			.setHardness(0.5F)
+			.setTags(new Tag[]{BlockTags.BROKEN_BY_FLUIDS, BlockTags.MINEABLE_BY_PICKAXE, BlockTags.PREVENT_MOB_SPAWNS})
+			.build("button.permafrost", blockId++, b -> new BlockLogicButton(b))
+			.withDisabledNeighborNotifyOnMetadataChange();
+		BUTTON_NETHERRACK = new BlockBuilder(RestonedMain.MOD_ID)
+			.setBlockSound(BlockSounds.STONE)
+			.setHardness(0.5F)
+			.setTags(new Tag[]{BlockTags.BROKEN_BY_FLUIDS, BlockTags.MINEABLE_BY_PICKAXE, BlockTags.PREVENT_MOB_SPAWNS})
+			.build("button.netherrack", blockId++, b -> new BlockLogicButton(b))
+			.withDisabledNeighborNotifyOnMetadataChange();
+
+		LEVER_COBBLE_BASALT = new BlockBuilder(RestonedMain.MOD_ID)
+			.setBlockSound(BlockSounds.STONE)
+			.setHardness(0.5F)
+			.setTags(new Tag[]{BlockTags.BROKEN_BY_FLUIDS, BlockTags.MINEABLE_BY_PICKAXE, BlockTags.PREVENT_MOB_SPAWNS})
+			.build("lever.cobble.basalt", blockId++, b -> new BlockLogicLever(b))
+			.withDisabledNeighborNotifyOnMetadataChange();
+		LEVER_COBBLE_LIMESTONE = new BlockBuilder(RestonedMain.MOD_ID)
+			.setBlockSound(BlockSounds.STONE)
+			.setHardness(0.5F)
+			.setTags(new Tag[]{BlockTags.BROKEN_BY_FLUIDS, BlockTags.MINEABLE_BY_PICKAXE, BlockTags.PREVENT_MOB_SPAWNS})
+			.build("lever.cobble.limestone", blockId++, b -> new BlockLogicLever(b))
+			.withDisabledNeighborNotifyOnMetadataChange();
+		LEVER_COBBLE_GRANITE = new BlockBuilder(RestonedMain.MOD_ID)
+			.setBlockSound(BlockSounds.STONE)
+			.setHardness(0.5F)
+			.setTags(new Tag[]{BlockTags.BROKEN_BY_FLUIDS, BlockTags.MINEABLE_BY_PICKAXE, BlockTags.PREVENT_MOB_SPAWNS})
+			.build("lever.cobble.granite", blockId++, b -> new BlockLogicLever(b))
+			.withDisabledNeighborNotifyOnMetadataChange();
+		LEVER_COBBLE_MARBLE = new BlockBuilder(RestonedMain.MOD_ID)
+			.setBlockSound(BlockSounds.STONE)
+			.setHardness(0.5F)
+			.setTags(new Tag[]{BlockTags.BROKEN_BY_FLUIDS, BlockTags.MINEABLE_BY_PICKAXE, BlockTags.PREVENT_MOB_SPAWNS})
+			.build("lever.cobble.marble", blockId++, b -> new BlockLogicLever(b))
+			.withDisabledNeighborNotifyOnMetadataChange();
+		LEVER_COBBLE_SLATE = new BlockBuilder(RestonedMain.MOD_ID)
+			.setBlockSound(BlockSounds.STONE)
+			.setHardness(0.5F)
+			.setTags(new Tag[]{BlockTags.BROKEN_BY_FLUIDS, BlockTags.MINEABLE_BY_PICKAXE, BlockTags.PREVENT_MOB_SPAWNS})
+			.build("lever.cobble.slate", blockId++, b -> new BlockLogicLever(b))
+			.withDisabledNeighborNotifyOnMetadataChange();
+		LEVER_COBBLE_PERMAFROST = new BlockBuilder(RestonedMain.MOD_ID)
+			.setBlockSound(BlockSounds.STONE)
+			.setHardness(0.5F)
+			.setTags(new Tag[]{BlockTags.BROKEN_BY_FLUIDS, BlockTags.MINEABLE_BY_PICKAXE, BlockTags.PREVENT_MOB_SPAWNS})
+			.build("lever.cobble.permafrost", blockId++, b -> new BlockLogicLever(b))
+			.withDisabledNeighborNotifyOnMetadataChange();
+		LEVER_COBBLE_NETHERRACK = new BlockBuilder(RestonedMain.MOD_ID)
+			.setBlockSound(BlockSounds.STONE)
+			.setHardness(0.5F)
+			.setTags(new Tag[]{BlockTags.BROKEN_BY_FLUIDS, BlockTags.MINEABLE_BY_PICKAXE, BlockTags.PREVENT_MOB_SPAWNS})
+			.build("lever.cobble.netherrack", blockId++, b -> new BlockLogicLever(b))
+			.withDisabledNeighborNotifyOnMetadataChange();
+
+		PRESSURE_PLATE_BASALT = new BlockBuilder(RestonedMain.MOD_ID)
+			.setBlockSound(BlockSounds.STONE)
+			.setHardness(0.5F)
+			.setTags(new Tag[]{BlockTags.MINEABLE_BY_PICKAXE, BlockTags.PREVENT_MOB_SPAWNS})
+			.build("pressureplate.basalt", blockId++, b -> new BlockLogicPressurePlate(b, Mob.class, Material.basalt))
+			.withDisabledNeighborNotifyOnMetadataChange();
+		PRESSURE_PLATE_LIMESTONE = new BlockBuilder(RestonedMain.MOD_ID)
+			.setBlockSound(BlockSounds.STONE)
+			.setHardness(0.5F)
+			.setTags(new Tag[]{BlockTags.MINEABLE_BY_PICKAXE, BlockTags.PREVENT_MOB_SPAWNS})
+			.build("pressureplate.limestone", blockId++, b -> new BlockLogicPressurePlate(b, Mob.class, Material.limestone))
+			.withDisabledNeighborNotifyOnMetadataChange();
+		PRESSURE_PLATE_GRANITE = new BlockBuilder(RestonedMain.MOD_ID)
+			.setBlockSound(BlockSounds.STONE)
+			.setHardness(0.5F)
+			.setTags(new Tag[]{BlockTags.MINEABLE_BY_PICKAXE, BlockTags.PREVENT_MOB_SPAWNS})
+			.build("pressureplate.granite", blockId++, b -> new BlockLogicPressurePlate(b, Mob.class, Material.granite))
+			.withDisabledNeighborNotifyOnMetadataChange();
+		PRESSURE_PLATE_MARBLE = new BlockBuilder(RestonedMain.MOD_ID)
+			.setBlockSound(BlockSounds.STONE)
+			.setHardness(0.5F)
+			.setTags(new Tag[]{BlockTags.MINEABLE_BY_PICKAXE, BlockTags.PREVENT_MOB_SPAWNS})
+			.build("pressureplate.marble", blockId++, b -> new BlockLogicPressurePlate(b, Mob.class, Material.marble))
+			.withDisabledNeighborNotifyOnMetadataChange();
+		PRESSURE_PLATE_SLATE = new BlockBuilder(RestonedMain.MOD_ID)
+			.setBlockSound(BlockSounds.STONE)
+			.setHardness(0.5F)
+			.setTags(new Tag[]{BlockTags.MINEABLE_BY_PICKAXE, BlockTags.PREVENT_MOB_SPAWNS})
+			.build("pressureplate.slate", blockId++, b -> new BlockLogicPressurePlate(b, Mob.class, Material.slate))
+			.withDisabledNeighborNotifyOnMetadataChange();
+		PRESSURE_PLATE_PERMAFROST = new BlockBuilder(RestonedMain.MOD_ID)
+			.setBlockSound(BlockSounds.PERMAFROST)
+			.setHardness(0.5F)
+			.setTags(new Tag[]{BlockTags.MINEABLE_BY_PICKAXE, BlockTags.PREVENT_MOB_SPAWNS})
+			.build("pressureplate.permafrost", blockId++, b -> new BlockLogicPressurePlate(b, Mob.class, Material.permafrost))
+			.withDisabledNeighborNotifyOnMetadataChange();
+		PRESSURE_PLATE_NETHERRACK = new BlockBuilder(RestonedMain.MOD_ID)
+			.setBlockSound(BlockSounds.STONE)
+			.setHardness(0.5F)
+			.setTags(new Tag[]{BlockTags.MINEABLE_BY_PICKAXE, BlockTags.PREVENT_MOB_SPAWNS})
+			.build("pressureplate.netherrack", blockId++, b -> new BlockLogicPressurePlate(b, Mob.class, Material.netherrack))
+			.withDisabledNeighborNotifyOnMetadataChange();
+
+		PRESSURE_PLATE_COBBLE_BASALT = new BlockBuilder(RestonedMain.MOD_ID)
+			.setBlockSound(BlockSounds.STONE)
+			.setHardness(0.5F)
+			.setTags(new Tag[]{BlockTags.MINEABLE_BY_PICKAXE, BlockTags.PREVENT_MOB_SPAWNS})
+			.build("pressureplate.cobble.basalt", blockId++, b -> new BlockLogicPressurePlate(b, Player.class, Material.basalt))
+			.withDisabledNeighborNotifyOnMetadataChange();
+		PRESSURE_PLATE_COBBLE_LIMESTONE = new BlockBuilder(RestonedMain.MOD_ID)
+			.setBlockSound(BlockSounds.STONE)
+			.setHardness(0.5F)
+			.setTags(new Tag[]{BlockTags.MINEABLE_BY_PICKAXE, BlockTags.PREVENT_MOB_SPAWNS})
+			.build("pressureplate.cobble.limestone", blockId++, b -> new BlockLogicPressurePlate(b, Player.class, Material.limestone))
+			.withDisabledNeighborNotifyOnMetadataChange();
+		PRESSURE_PLATE_COBBLE_GRANITE = new BlockBuilder(RestonedMain.MOD_ID)
+			.setBlockSound(BlockSounds.STONE)
+			.setHardness(0.5F)
+			.setTags(new Tag[]{BlockTags.MINEABLE_BY_PICKAXE, BlockTags.PREVENT_MOB_SPAWNS})
+			.build("pressureplate.cobble.granite", blockId++, b -> new BlockLogicPressurePlate(b, Player.class, Material.granite))
+			.withDisabledNeighborNotifyOnMetadataChange();
+		PRESSURE_PLATE_COBBLE_MARBLE = new BlockBuilder(RestonedMain.MOD_ID)
+			.setBlockSound(BlockSounds.STONE)
+			.setHardness(0.5F)
+			.setTags(new Tag[]{BlockTags.MINEABLE_BY_PICKAXE, BlockTags.PREVENT_MOB_SPAWNS})
+			.build("pressureplate.cobble.marble", blockId++, b -> new BlockLogicPressurePlate(b, Player.class, Material.marble))
+			.withDisabledNeighborNotifyOnMetadataChange();
+		PRESSURE_PLATE_COBBLE_SLATE = new BlockBuilder(RestonedMain.MOD_ID)
+			.setBlockSound(BlockSounds.STONE)
+			.setHardness(0.5F)
+			.setTags(new Tag[]{BlockTags.MINEABLE_BY_PICKAXE, BlockTags.PREVENT_MOB_SPAWNS})
+			.build("pressureplate.cobble.slate", blockId++, b -> new BlockLogicPressurePlate(b, Player.class, Material.slate))
+			.withDisabledNeighborNotifyOnMetadataChange();
+		PRESSURE_PLATE_COBBLE_PERMAFROST = new BlockBuilder(RestonedMain.MOD_ID)
+			.setBlockSound(BlockSounds.PERMAFROST)
+			.setHardness(0.5F)
+			.setTags(new Tag[]{BlockTags.MINEABLE_BY_PICKAXE, BlockTags.PREVENT_MOB_SPAWNS})
+			.build("pressureplate.cobble.permafrost", blockId++, b -> new BlockLogicPressurePlate(b, Player.class, Material.permafrost))
+			.withDisabledNeighborNotifyOnMetadataChange();
+		PRESSURE_PLATE_COBBLE_NETHERRACK = new BlockBuilder(RestonedMain.MOD_ID)
+			.setBlockSound(BlockSounds.STONE)
+			.setHardness(0.5F)
+			.setTags(new Tag[]{BlockTags.MINEABLE_BY_PICKAXE, BlockTags.PREVENT_MOB_SPAWNS})
+			.build("pressureplate.cobble.netherrack", blockId++, b -> new BlockLogicPressurePlate(b, Player.class, Material.netherrack))
+			.withDisabledNeighborNotifyOnMetadataChange();
+
+		BASALT_MOTION_SENSOR_IDLE = new BlockBuilder(RestonedMain.MOD_ID)
+			.build("basalt.motionsensor.idle", blockId++, b -> new BlockLogicCustomMotionSensor(b, false, BASALT_MOTION_SENSOR_IDLE, BASALT_MOTION_SENSOR_ACTIVE))
+			.withSound(BlockSounds.STONE)
+			.withHardness(2.0F)
+			.withBlastResistance(10.0F)
+			.withDisabledNeighborNotifyOnMetadataChange()
+			.withOverrideColor(MaterialColor.basalt)
+			.withTags(new Tag[]{BlockTags.MINEABLE_BY_PICKAXE});
+		BASALT_MOTION_SENSOR_ACTIVE = new BlockBuilder(RestonedMain.MOD_ID)
+			.build("basalt.motionsensor.active", blockId++, b -> new BlockLogicCustomMotionSensor(b, true, BASALT_MOTION_SENSOR_IDLE, BASALT_MOTION_SENSOR_ACTIVE))
+			.withSound(BlockSounds.STONE)
+			.withLightEmission(0.3F)
+			.withHardness(2.0F)
+			.withBlastResistance(10.0F)
+			.withOverrideColor(MaterialColor.basalt)
+			.setStatParent(() -> {return BASALT_MOTION_SENSOR_IDLE;})
+			.withTags(new Tag[]{BlockTags.NOT_IN_CREATIVE_MENU, BlockTags.MINEABLE_BY_PICKAXE});
 
 		initBlockDetails();
 	}

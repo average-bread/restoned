@@ -1,6 +1,8 @@
 package cursedbread.restoned;
 
+import cursedbread.restoned.models.BlockModelCustomLever;
 import cursedbread.restoned.models.BlockModelSlabCap;
+import cursedbread.restoned.tileentities.TileEntityCustomSensor;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.render.EntityRenderDispatcher;
@@ -8,6 +10,7 @@ import net.minecraft.client.render.TileEntityRenderDispatcher;
 import net.minecraft.client.render.block.color.BlockColorDispatcher;
 import net.minecraft.client.render.block.model.*;
 import net.minecraft.client.render.item.model.ItemModelDispatcher;
+import net.minecraft.core.block.Blocks;
 import net.minecraft.core.util.helper.Side;
 import turniplabs.halplibe.helper.ModelHelper;
 import turniplabs.halplibe.util.ModelEntrypoint;
@@ -205,6 +208,161 @@ public class RestonedModels  implements ModelEntrypoint {
 			() -> new BlockModelSlabCap<>(RestonedBlocks.SLAB_CAPSTONE_PERMAFROST, "restoned:block/capstone/permafrost_side"));
 		ModelHelper.setBlockModel(RestonedBlocks.SLAB_CAPSTONE_NETHERRACK,
 			() -> new BlockModelSlabCap<>(RestonedBlocks.SLAB_CAPSTONE_NETHERRACK, "restoned:block/capstone/netherrack_side"));
+
+		ModelHelper.setBlockModel(RestonedBlocks.BUTTON_BASALT,
+			() -> new BlockModelStandard<>(RestonedBlocks.BUTTON_BASALT)
+				.setTex(0, "minecraft:block/basalt", Side.sides)
+				.withCustomItemBounds(0.3125, 0.375, 0.375, 0.6875, 0.625, 0.625)
+		);
+		ModelHelper.setBlockModel(RestonedBlocks.BUTTON_LIMESTONE,
+			() -> new BlockModelStandard<>(RestonedBlocks.BUTTON_LIMESTONE)
+				.setTex(0, "minecraft:block/limestone", Side.sides)
+				.withCustomItemBounds(0.3125, 0.375, 0.375, 0.6875, 0.625, 0.625)
+		);
+		ModelHelper.setBlockModel(RestonedBlocks.BUTTON_GRANITE,
+			() -> new BlockModelStandard<>(RestonedBlocks.BUTTON_GRANITE)
+				.setTex(0, "minecraft:block/granite", Side.sides)
+				.withCustomItemBounds(0.3125, 0.375, 0.375, 0.6875, 0.625, 0.625)
+		);
+		ModelHelper.setBlockModel(RestonedBlocks.BUTTON_MARBLE,
+			() -> new BlockModelStandard<>(RestonedBlocks.BUTTON_MARBLE)
+				.setTex(0, "minecraft:block/marble", Side.sides)
+				.withCustomItemBounds(0.3125, 0.375, 0.375, 0.6875, 0.625, 0.625)
+		);
+		ModelHelper.setBlockModel(RestonedBlocks.BUTTON_SLATE,
+			() -> new BlockModelStandard<>(RestonedBlocks.BUTTON_SLATE)
+				.setTex(0, "minecraft:block/slate_side", Side.sides)
+				.setTex(0, "minecraft:block/slate_top", Side.TOP)
+				.setTex(0, "minecraft:block/slate_top", Side.BOTTOM)
+				.withCustomItemBounds(0.3125, 0.375, 0.375, 0.6875, 0.625, 0.625)
+		);
+		ModelHelper.setBlockModel(RestonedBlocks.BUTTON_PERMAFROST,
+			() -> new BlockModelStandard<>(RestonedBlocks.BUTTON_PERMAFROST)
+				.setTex(0, "minecraft:block/permafrost", Side.sides)
+				.withCustomItemBounds(0.3125, 0.375, 0.375, 0.6875, 0.625, 0.625)
+		);
+		ModelHelper.setBlockModel(RestonedBlocks.BUTTON_NETHERRACK,
+			() -> new BlockModelStandard<>(RestonedBlocks.BUTTON_NETHERRACK)
+				.setTex(0, "minecraft:block/netherrack", Side.sides)
+				.withCustomItemBounds(0.3125, 0.375, 0.375, 0.6875, 0.625, 0.625)
+		);
+
+		ModelHelper.setBlockModel(RestonedBlocks.LEVER_COBBLE_BASALT,
+			() -> new BlockModelCustomLever<>(RestonedBlocks.LEVER_COBBLE_BASALT, Blocks.COBBLE_BASALT)
+				.setTex(0, "restoned:block/levers/lever_cobbled_basalt", Side.sides)
+		);
+		ModelHelper.setBlockModel(RestonedBlocks.LEVER_COBBLE_LIMESTONE,
+			() -> new BlockModelCustomLever<>(RestonedBlocks.LEVER_COBBLE_LIMESTONE, Blocks.COBBLE_LIMESTONE)
+				.setTex(0, "restoned:block/levers/lever_cobbled_limestone", Side.sides)
+		);
+		ModelHelper.setBlockModel(RestonedBlocks.LEVER_COBBLE_GRANITE,
+			() -> new BlockModelCustomLever<>(RestonedBlocks.LEVER_COBBLE_GRANITE, Blocks.COBBLE_GRANITE)
+				.setTex(0, "restoned:block/levers/lever_cobbled_granite", Side.sides)
+		);
+		ModelHelper.setBlockModel(RestonedBlocks.LEVER_COBBLE_MARBLE,
+			() -> new BlockModelCustomLever<>(RestonedBlocks.LEVER_COBBLE_MARBLE, RestonedBlocks.COBBLE_MARBLE)
+				.setTex(0, "restoned:block/levers/lever_cobbled_marble", Side.sides)
+		);
+		ModelHelper.setBlockModel(RestonedBlocks.LEVER_COBBLE_SLATE,
+			() -> new BlockModelCustomLever<>(RestonedBlocks.LEVER_COBBLE_SLATE, RestonedBlocks.COBBLE_SLATE)
+				.setTex(0, "restoned:block/levers/lever_cobbled_basalt", Side.sides)
+		);
+		ModelHelper.setBlockModel(RestonedBlocks.LEVER_COBBLE_PERMAFROST,
+			() -> new BlockModelCustomLever<>(RestonedBlocks.LEVER_COBBLE_PERMAFROST, Blocks.COBBLE_PERMAFROST)
+				.setTex(0, "restoned:block/levers/lever_cobbled_permafrost", Side.sides)
+		);
+		ModelHelper.setBlockModel(RestonedBlocks.LEVER_COBBLE_NETHERRACK,
+			() -> new BlockModelCustomLever<>(RestonedBlocks.LEVER_COBBLE_NETHERRACK, Blocks.COBBLE_NETHERRACK)
+				.setTex(0, "restoned:block/levers/lever_cobbled_netherrack", Side.sides)
+		);
+
+		ModelHelper.setBlockModel(RestonedBlocks.PRESSURE_PLATE_BASALT,
+			() -> new BlockModelStandard<>(RestonedBlocks.PRESSURE_PLATE_BASALT)
+				.setTex(0, "minecraft:block/basalt", Side.sides)
+				.withCustomItemBounds(0.0, 0.375, 0.0, 1.0, 0.625, 1.0)
+		);
+		ModelHelper.setBlockModel(RestonedBlocks.PRESSURE_PLATE_LIMESTONE,
+			() -> new BlockModelStandard<>(RestonedBlocks.PRESSURE_PLATE_LIMESTONE)
+				.setTex(0, "minecraft:block/limestone", Side.sides)
+				.withCustomItemBounds(0.0, 0.375, 0.0, 1.0, 0.625, 1.0)
+		);
+		ModelHelper.setBlockModel(RestonedBlocks.PRESSURE_PLATE_GRANITE,
+			() -> new BlockModelStandard<>(RestonedBlocks.PRESSURE_PLATE_GRANITE)
+				.setTex(0, "minecraft:block/granite", Side.sides)
+				.withCustomItemBounds(0.0, 0.375, 0.0, 1.0, 0.625, 1.0)
+		);
+		ModelHelper.setBlockModel(RestonedBlocks.PRESSURE_PLATE_MARBLE,
+			() -> new BlockModelStandard<>(RestonedBlocks.PRESSURE_PLATE_MARBLE)
+				.setTex(0, "minecraft:block/marble", Side.sides)
+				.withCustomItemBounds(0.0, 0.375, 0.0, 1.0, 0.625, 1.0)
+		);
+		ModelHelper.setBlockModel(RestonedBlocks.PRESSURE_PLATE_SLATE,
+			() -> new BlockModelStandard<>(RestonedBlocks.PRESSURE_PLATE_SLATE)
+				.setTex(0, "minecraft:block/slate_side", Side.sides)
+				.setTex(0, "minecraft:block/slate_top", Side.TOP)
+				.setTex(0, "minecraft:block/slate_top", Side.BOTTOM)
+				.withCustomItemBounds(0.0, 0.375, 0.0, 1.0, 0.625, 1.0)
+		);
+		ModelHelper.setBlockModel(RestonedBlocks.PRESSURE_PLATE_PERMAFROST,
+			() -> new BlockModelStandard<>(RestonedBlocks.PRESSURE_PLATE_PERMAFROST)
+				.setTex(0, "minecraft:block/permafrost", Side.sides)
+				.withCustomItemBounds(0.0, 0.375, 0.0, 1.0, 0.625, 1.0)
+		);
+		ModelHelper.setBlockModel(RestonedBlocks.PRESSURE_PLATE_NETHERRACK,
+			() -> new BlockModelStandard<>(RestonedBlocks.PRESSURE_PLATE_NETHERRACK)
+				.setTex(0, "minecraft:block/netherrack", Side.sides)
+				.withCustomItemBounds(0.0, 0.375, 0.0, 1.0, 0.625, 1.0)
+		);
+
+		ModelHelper.setBlockModel(RestonedBlocks.PRESSURE_PLATE_COBBLE_BASALT,
+			() -> new BlockModelStandard<>(RestonedBlocks.PRESSURE_PLATE_COBBLE_BASALT)
+				.setTex(0, "minecraft:block/cobbled_basalt", Side.sides)
+				.withCustomItemBounds(0.0, 0.375, 0.0, 1.0, 0.625, 1.0)
+		);
+		ModelHelper.setBlockModel(RestonedBlocks.PRESSURE_PLATE_COBBLE_LIMESTONE,
+			() -> new BlockModelStandard<>(RestonedBlocks.PRESSURE_PLATE_COBBLE_LIMESTONE)
+				.setTex(0, "minecraft:block/cobbled_limestone", Side.sides)
+				.withCustomItemBounds(0.0, 0.375, 0.0, 1.0, 0.625, 1.0)
+		);
+		ModelHelper.setBlockModel(RestonedBlocks.PRESSURE_PLATE_COBBLE_GRANITE,
+			() -> new BlockModelStandard<>(RestonedBlocks.PRESSURE_PLATE_COBBLE_GRANITE)
+				.setTex(0, "minecraft:block/cobbled_granite", Side.sides)
+				.withCustomItemBounds(0.0, 0.375, 0.0, 1.0, 0.625, 1.0)
+		);
+		ModelHelper.setBlockModel(RestonedBlocks.PRESSURE_PLATE_COBBLE_MARBLE,
+			() -> new BlockModelStandard<>(RestonedBlocks.PRESSURE_PLATE_COBBLE_MARBLE)
+				.setTex(0, "restoned:block/cobbled/cobbled_marble", Side.sides)
+				.withCustomItemBounds(0.0, 0.375, 0.0, 1.0, 0.625, 1.0)
+		);
+		ModelHelper.setBlockModel(RestonedBlocks.PRESSURE_PLATE_COBBLE_SLATE,
+			() -> new BlockModelStandard<>(RestonedBlocks.PRESSURE_PLATE_COBBLE_SLATE)
+				.setTex(0, "restoned:block/cobbled/cobbled_slate_side", Side.sides)
+				.setTex(0, "restoned:block/cobbled/cobbled_slate_top", Side.TOP)
+				.setTex(0, "restoned:block/cobbled/cobbled_slate_top", Side.BOTTOM)
+				.withCustomItemBounds(0.0, 0.375, 0.0, 1.0, 0.625, 1.0)
+		);
+		ModelHelper.setBlockModel(RestonedBlocks.PRESSURE_PLATE_COBBLE_PERMAFROST,
+			() -> new BlockModelStandard<>(RestonedBlocks.PRESSURE_PLATE_COBBLE_PERMAFROST)
+				.setTex(0, "minecraft:block/cobbled_permafrost", Side.sides)
+				.withCustomItemBounds(0.0, 0.375, 0.0, 1.0, 0.625, 1.0)
+		);
+		ModelHelper.setBlockModel(RestonedBlocks.PRESSURE_PLATE_COBBLE_NETHERRACK,
+			() -> new BlockModelStandard<>(RestonedBlocks.PRESSURE_PLATE_COBBLE_NETHERRACK)
+				.setTex(0, "minecraft:block/cobbled_netherrack", Side.sides)
+				.withCustomItemBounds(0.0, 0.375, 0.0, 1.0, 0.625, 1.0)
+		);
+
+		ModelHelper.setBlockModel(RestonedBlocks.BASALT_MOTION_SENSOR_IDLE,
+			() -> new BlockModelVeryRotatable<>(RestonedBlocks.BASALT_MOTION_SENSOR_IDLE)
+				.setTex(0, "restoned:block/motion_sensors/basalt/side", Side.sides)
+				.setTex(0, "restoned:block/motion_sensors/basalt/idle_front", Side.SOUTH)
+		);
+		ModelHelper.setBlockModel(RestonedBlocks.BASALT_MOTION_SENSOR_ACTIVE,
+			() -> new BlockModelVeryRotatable<>(RestonedBlocks.BASALT_MOTION_SENSOR_ACTIVE)
+				.setTex(0, "restoned:block/motion_sensors/basalt/side", Side.sides)
+				.setTex(0, "restoned:block/motion_sensors/basalt/active_front", Side.SOUTH)
+				.setTex(1, "restoned:block/motion_sensors/basalt/active_front_overlay", Side.SOUTH)
+		);
 	}
 
 	@Override
