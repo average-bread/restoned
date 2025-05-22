@@ -31,6 +31,7 @@ public class RestonedMain implements ModInitializer, GameStartEntrypoint, Client
     public void onInitialize() {
         LOGGER.info("Re Stoning");
 		new RestonedBlocks().initBlocks();
+		new RestonedEntities().initilizeEntities();
     }
 
 	@Override

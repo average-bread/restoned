@@ -363,6 +363,72 @@ public class RestonedModels  implements ModelEntrypoint {
 				.setTex(0, "restoned:block/motion_sensors/basalt/active_front", Side.SOUTH)
 				.setTex(1, "restoned:block/motion_sensors/basalt/active_front_overlay", Side.SOUTH)
 		);
+		ModelHelper.setBlockModel(RestonedBlocks.LIMESTONE_MOTION_SENSOR_IDLE,
+			() -> new BlockModelVeryRotatable<>(RestonedBlocks.LIMESTONE_MOTION_SENSOR_IDLE)
+				.setTex(0, "restoned:block/motion_sensors/limestone/side", Side.sides)
+				.setTex(0, "restoned:block/motion_sensors/limestone/idle_front", Side.SOUTH)
+		);
+		ModelHelper.setBlockModel(RestonedBlocks.LIMESTONE_MOTION_SENSOR_ACTIVE,
+			() -> new BlockModelVeryRotatable<>(RestonedBlocks.LIMESTONE_MOTION_SENSOR_ACTIVE)
+				.setTex(0, "restoned:block/motion_sensors/limestone/side", Side.sides)
+				.setTex(0, "restoned:block/motion_sensors/limestone/active_front", Side.SOUTH)
+				.setTex(1, "restoned:block/motion_sensors/limestone/active_front_overlay", Side.SOUTH)
+		);
+		ModelHelper.setBlockModel(RestonedBlocks.GRANITE_MOTION_SENSOR_IDLE,
+			() -> new BlockModelVeryRotatable<>(RestonedBlocks.GRANITE_MOTION_SENSOR_IDLE)
+				.setTex(0, "restoned:block/motion_sensors/granite/side", Side.sides)
+				.setTex(0, "restoned:block/motion_sensors/granite/idle_front", Side.SOUTH)
+		);
+		ModelHelper.setBlockModel(RestonedBlocks.GRANITE_MOTION_SENSOR_ACTIVE,
+			() -> new BlockModelVeryRotatable<>(RestonedBlocks.GRANITE_MOTION_SENSOR_ACTIVE)
+				.setTex(0, "restoned:block/motion_sensors/granite/side", Side.sides)
+				.setTex(0, "restoned:block/motion_sensors/granite/active_front", Side.SOUTH)
+				.setTex(1, "restoned:block/motion_sensors/granite/active_front_overlay", Side.SOUTH)
+		);
+		ModelHelper.setBlockModel(RestonedBlocks.MARBLE_MOTION_SENSOR_IDLE,
+			() -> new BlockModelVeryRotatable<>(RestonedBlocks.MARBLE_MOTION_SENSOR_IDLE)
+				.setTex(0, "restoned:block/motion_sensors/marble/side", Side.sides)
+				.setTex(0, "restoned:block/motion_sensors/marble/idle_front", Side.SOUTH)
+		);
+		ModelHelper.setBlockModel(RestonedBlocks.MARBLE_MOTION_SENSOR_ACTIVE,
+			() -> new BlockModelVeryRotatable<>(RestonedBlocks.MARBLE_MOTION_SENSOR_ACTIVE)
+				.setTex(0, "restoned:block/motion_sensors/marble/side", Side.sides)
+				.setTex(0, "restoned:block/motion_sensors/marble/active_front", Side.SOUTH)
+				.setTex(1, "restoned:block/motion_sensors/marble/active_front_overlay", Side.SOUTH)
+		);
+		ModelHelper.setBlockModel(RestonedBlocks.SLATE_MOTION_SENSOR_IDLE,
+			() -> new BlockModelVeryRotatable<>(RestonedBlocks.SLATE_MOTION_SENSOR_IDLE)
+				.setTex(0, "restoned:block/motion_sensors/slate/side", Side.sides)
+				.setTex(0, "restoned:block/motion_sensors/slate/idle_front", Side.SOUTH)
+		);
+		ModelHelper.setBlockModel(RestonedBlocks.SLATE_MOTION_SENSOR_ACTIVE,
+			() -> new BlockModelVeryRotatable<>(RestonedBlocks.SLATE_MOTION_SENSOR_ACTIVE)
+				.setTex(0, "restoned:block/motion_sensors/slate/side", Side.sides)
+				.setTex(0, "restoned:block/motion_sensors/slate/active_front", Side.SOUTH)
+				.setTex(1, "restoned:block/motion_sensors/slate/active_front_overlay", Side.SOUTH)
+		);
+		ModelHelper.setBlockModel(RestonedBlocks.PERMAFROST_MOTION_SENSOR_IDLE,
+			() -> new BlockModelVeryRotatable<>(RestonedBlocks.PERMAFROST_MOTION_SENSOR_IDLE)
+				.setTex(0, "restoned:block/motion_sensors/permafrost/side", Side.sides)
+				.setTex(0, "restoned:block/motion_sensors/permafrost/idle_front", Side.SOUTH)
+		);
+		ModelHelper.setBlockModel(RestonedBlocks.PERMAFROST_MOTION_SENSOR_ACTIVE,
+			() -> new BlockModelVeryRotatable<>(RestonedBlocks.PERMAFROST_MOTION_SENSOR_ACTIVE)
+				.setTex(0, "restoned:block/motion_sensors/permafrost/side", Side.sides)
+				.setTex(0, "restoned:block/motion_sensors/permafrost/active_front", Side.SOUTH)
+				.setTex(1, "restoned:block/motion_sensors/permafrost/active_front_overlay", Side.SOUTH)
+		);
+		ModelHelper.setBlockModel(RestonedBlocks.NETHERRACK_MOTION_SENSOR_IDLE,
+			() -> new BlockModelVeryRotatable<>(RestonedBlocks.NETHERRACK_MOTION_SENSOR_IDLE)
+				.setTex(0, "restoned:block/motion_sensors/netherrack/side", Side.sides)
+				.setTex(0, "restoned:block/motion_sensors/netherrack/idle_front", Side.SOUTH)
+		);
+		ModelHelper.setBlockModel(RestonedBlocks.NETHERRACK_MOTION_SENSOR_ACTIVE,
+			() -> new BlockModelVeryRotatable<>(RestonedBlocks.NETHERRACK_MOTION_SENSOR_ACTIVE)
+				.setTex(0, "restoned:block/motion_sensors/netherrack/side", Side.sides)
+				.setTex(0, "restoned:block/motion_sensors/netherrack/active_front", Side.SOUTH)
+				.setTex(1, "restoned:block/motion_sensors/netherrack/active_front_overlay", Side.SOUTH)
+		);
 	}
 
 	@Override

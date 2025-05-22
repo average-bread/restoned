@@ -15,9 +15,13 @@ public class RestonedCrafts implements RecipeEntrypoint {
 		RecipeBuilder.getRecipeNamespace(RestonedMain.MOD_ID);
 		Registries.ITEM_GROUPS.register("restoned:motion_sensor", Registries.stackListOf(
 			Blocks.MOTION_SENSOR_IDLE,
-			Blocks.MOTION_SENSOR_ACTIVE,
 			RestonedBlocks.BASALT_MOTION_SENSOR_IDLE,
-			RestonedBlocks.BASALT_MOTION_SENSOR_ACTIVE
+			RestonedBlocks.LIMESTONE_MOTION_SENSOR_IDLE,
+			RestonedBlocks.GRANITE_MOTION_SENSOR_IDLE,
+			RestonedBlocks.MARBLE_MOTION_SENSOR_IDLE,
+			RestonedBlocks.SLATE_MOTION_SENSOR_IDLE,
+			RestonedBlocks.PERMAFROST_MOTION_SENSOR_IDLE,
+			RestonedBlocks.NETHERRACK_MOTION_SENSOR_IDLE
 		));
 	}
 
@@ -182,7 +186,13 @@ public class RestonedCrafts implements RecipeEntrypoint {
 
 	static Block[] motionResult = {
 		Blocks.MOTION_SENSOR_IDLE,
-		RestonedBlocks.BASALT_MOTION_SENSOR_IDLE
+		RestonedBlocks.BASALT_MOTION_SENSOR_IDLE,
+		RestonedBlocks.LIMESTONE_MOTION_SENSOR_IDLE,
+		RestonedBlocks.GRANITE_MOTION_SENSOR_IDLE,
+		RestonedBlocks.MARBLE_MOTION_SENSOR_IDLE,
+		RestonedBlocks.SLATE_MOTION_SENSOR_IDLE,
+		RestonedBlocks.PERMAFROST_MOTION_SENSOR_IDLE,
+		RestonedBlocks.NETHERRACK_MOTION_SENSOR_IDLE
 	};
 
 	static String[] annihilateVanillaCraft = {

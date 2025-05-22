@@ -106,6 +106,18 @@ public class RestonedBlocks {
 
 	public static Block <BlockLogicMotionSensor> BASALT_MOTION_SENSOR_IDLE;
 	public static Block <BlockLogicMotionSensor> BASALT_MOTION_SENSOR_ACTIVE;
+	public static Block <BlockLogicMotionSensor> LIMESTONE_MOTION_SENSOR_IDLE;
+	public static Block <BlockLogicMotionSensor> LIMESTONE_MOTION_SENSOR_ACTIVE;
+	public static Block <BlockLogicMotionSensor> GRANITE_MOTION_SENSOR_IDLE;
+	public static Block <BlockLogicMotionSensor> GRANITE_MOTION_SENSOR_ACTIVE;
+	public static Block <BlockLogicMotionSensor> MARBLE_MOTION_SENSOR_IDLE;
+	public static Block <BlockLogicMotionSensor> MARBLE_MOTION_SENSOR_ACTIVE;
+	public static Block <BlockLogicMotionSensor> SLATE_MOTION_SENSOR_IDLE;
+	public static Block <BlockLogicMotionSensor> SLATE_MOTION_SENSOR_ACTIVE;
+	public static Block <BlockLogicMotionSensor> PERMAFROST_MOTION_SENSOR_IDLE;
+	public static Block <BlockLogicMotionSensor> PERMAFROST_MOTION_SENSOR_ACTIVE;
+	public static Block <BlockLogicMotionSensor> NETHERRACK_MOTION_SENSOR_IDLE;
+	public static Block <BlockLogicMotionSensor> NETHERRACK_MOTION_SENSOR_ACTIVE;
 
 	public void initBlockDetails(){
 
@@ -542,7 +554,11 @@ public class RestonedBlocks {
 			.withDisabledNeighborNotifyOnMetadataChange();
 
 		BASALT_MOTION_SENSOR_IDLE = new BlockBuilder(RestonedMain.MOD_ID)
-			.build("basalt.motionsensor.idle", blockId++, b -> new BlockLogicCustomMotionSensor(b, false, BASALT_MOTION_SENSOR_IDLE, BASALT_MOTION_SENSOR_ACTIVE))
+			.build("basalt.motionsensor.idle", blockId++, b -> new BlockLogicCustomMotionSensor(b,
+				false,
+				BASALT_MOTION_SENSOR_IDLE,
+				BASALT_MOTION_SENSOR_ACTIVE,
+				"random.breath"))
 			.withSound(BlockSounds.STONE)
 			.withHardness(2.0F)
 			.withBlastResistance(10.0F)
@@ -550,13 +566,167 @@ public class RestonedBlocks {
 			.withOverrideColor(MaterialColor.basalt)
 			.withTags(new Tag[]{BlockTags.MINEABLE_BY_PICKAXE});
 		BASALT_MOTION_SENSOR_ACTIVE = new BlockBuilder(RestonedMain.MOD_ID)
-			.build("basalt.motionsensor.active", blockId++, b -> new BlockLogicCustomMotionSensor(b, true, BASALT_MOTION_SENSOR_IDLE, BASALT_MOTION_SENSOR_ACTIVE))
+			.build("basalt.motionsensor.active", blockId++, b -> new BlockLogicCustomMotionSensor(b,
+				true,
+				BASALT_MOTION_SENSOR_IDLE,
+				BASALT_MOTION_SENSOR_ACTIVE,
+				"random.breath"))
 			.withSound(BlockSounds.STONE)
 			.withLightEmission(0.3F)
 			.withHardness(2.0F)
 			.withBlastResistance(10.0F)
 			.withOverrideColor(MaterialColor.basalt)
 			.setStatParent(() -> {return BASALT_MOTION_SENSOR_IDLE;})
+			.withTags(new Tag[]{BlockTags.NOT_IN_CREATIVE_MENU, BlockTags.MINEABLE_BY_PICKAXE});
+		LIMESTONE_MOTION_SENSOR_IDLE = new BlockBuilder(RestonedMain.MOD_ID)
+			.build("limestone.motionsensor.idle", blockId++, b -> new BlockLogicCustomMotionSensor(b,
+				false,
+				LIMESTONE_MOTION_SENSOR_IDLE,
+				LIMESTONE_MOTION_SENSOR_ACTIVE,
+				"tile.sensor_block.sense"))
+			.withSound(BlockSounds.STONE)
+			.withHardness(2.0F)
+			.withBlastResistance(10.0F)
+			.withDisabledNeighborNotifyOnMetadataChange()
+			.withOverrideColor(MaterialColor.limestone)
+			.withTags(new Tag[]{BlockTags.MINEABLE_BY_PICKAXE});
+		LIMESTONE_MOTION_SENSOR_ACTIVE = new BlockBuilder(RestonedMain.MOD_ID)
+			.build("limestone.motionsensor.active", blockId++, b -> new BlockLogicCustomMotionSensor(b,
+				true,
+				LIMESTONE_MOTION_SENSOR_IDLE,
+				LIMESTONE_MOTION_SENSOR_ACTIVE,
+				"tile.sensor_block.sense"))
+			.withSound(BlockSounds.STONE)
+			.withLightEmission(0.3F)
+			.withHardness(2.0F)
+			.withBlastResistance(10.0F)
+			.withOverrideColor(MaterialColor.limestone)
+			.setStatParent(() -> {return LIMESTONE_MOTION_SENSOR_IDLE;})
+			.withTags(new Tag[]{BlockTags.NOT_IN_CREATIVE_MENU, BlockTags.MINEABLE_BY_PICKAXE});
+		GRANITE_MOTION_SENSOR_IDLE = new BlockBuilder(RestonedMain.MOD_ID)
+			.build("granite.motionsensor.idle", blockId++, b -> new BlockLogicCustomMotionSensor(b,
+				false,
+				GRANITE_MOTION_SENSOR_IDLE,
+				GRANITE_MOTION_SENSOR_ACTIVE,
+				"tile.sensor_block.sense"))
+			.withSound(BlockSounds.STONE)
+			.withHardness(2.0F)
+			.withBlastResistance(10.0F)
+			.withDisabledNeighborNotifyOnMetadataChange()
+			.withOverrideColor(MaterialColor.granite)
+			.withTags(new Tag[]{BlockTags.MINEABLE_BY_PICKAXE});
+		GRANITE_MOTION_SENSOR_ACTIVE = new BlockBuilder(RestonedMain.MOD_ID)
+			.build("granite.motionsensor.active", blockId++, b -> new BlockLogicCustomMotionSensor(b,
+				true,
+				GRANITE_MOTION_SENSOR_IDLE,
+				GRANITE_MOTION_SENSOR_ACTIVE,
+				"tile.sensor_block.sense"))
+			.withSound(BlockSounds.STONE)
+			.withLightEmission(0.3F)
+			.withHardness(2.0F)
+			.withBlastResistance(10.0F)
+			.withOverrideColor(MaterialColor.granite)
+			.setStatParent(() -> {return GRANITE_MOTION_SENSOR_IDLE;})
+			.withTags(new Tag[]{BlockTags.NOT_IN_CREATIVE_MENU, BlockTags.MINEABLE_BY_PICKAXE});
+		MARBLE_MOTION_SENSOR_IDLE = new BlockBuilder(RestonedMain.MOD_ID)
+			.build("marble.motionsensor.idle", blockId++, b -> new BlockLogicCustomMotionSensor(b,
+				false,
+				MARBLE_MOTION_SENSOR_IDLE,
+				MARBLE_MOTION_SENSOR_ACTIVE,
+				"mob.pig"))
+			.withSound(BlockSounds.STONE)
+			.withHardness(2.0F)
+			.withBlastResistance(10.0F)
+			.withDisabledNeighborNotifyOnMetadataChange()
+			.withOverrideColor(MaterialColor.marble)
+			.withTags(new Tag[]{BlockTags.MINEABLE_BY_PICKAXE});
+		MARBLE_MOTION_SENSOR_ACTIVE = new BlockBuilder(RestonedMain.MOD_ID)
+			.build("marble.motionsensor.active", blockId++, b -> new BlockLogicCustomMotionSensor(b,
+				true,
+				MARBLE_MOTION_SENSOR_IDLE,
+				MARBLE_MOTION_SENSOR_ACTIVE,
+				"mob.pig"))
+			.withSound(BlockSounds.STONE)
+			.withLightEmission(0.3F)
+			.withHardness(2.0F)
+			.withBlastResistance(10.0F)
+			.withOverrideColor(MaterialColor.marble)
+			.setStatParent(() -> {return MARBLE_MOTION_SENSOR_IDLE;})
+			.withTags(new Tag[]{BlockTags.NOT_IN_CREATIVE_MENU, BlockTags.MINEABLE_BY_PICKAXE});
+		SLATE_MOTION_SENSOR_IDLE = new BlockBuilder(RestonedMain.MOD_ID)
+			.build("slate.motionsensor.idle", blockId++, b -> new BlockLogicCustomMotionSensor(b,
+				false,
+				SLATE_MOTION_SENSOR_IDLE,
+				SLATE_MOTION_SENSOR_ACTIVE,
+				"tile.sensor_block.sense"))
+			.withSound(BlockSounds.STONE)
+			.withHardness(2.0F)
+			.withBlastResistance(10.0F)
+			.withDisabledNeighborNotifyOnMetadataChange()
+			.withOverrideColor(MaterialColor.slate)
+			.withTags(new Tag[]{BlockTags.MINEABLE_BY_PICKAXE});
+		SLATE_MOTION_SENSOR_ACTIVE = new BlockBuilder(RestonedMain.MOD_ID)
+			.build("slate.motionsensor.active", blockId++, b -> new BlockLogicCustomMotionSensor(b,
+				true,
+				SLATE_MOTION_SENSOR_IDLE,
+				SLATE_MOTION_SENSOR_ACTIVE,
+				"tile.sensor_block.sense"))
+			.withSound(BlockSounds.STONE)
+			.withLightEmission(0.3F)
+			.withHardness(2.0F)
+			.withBlastResistance(10.0F)
+			.withOverrideColor(MaterialColor.slate)
+			.setStatParent(() -> {return SLATE_MOTION_SENSOR_IDLE;})
+			.withTags(new Tag[]{BlockTags.NOT_IN_CREATIVE_MENU, BlockTags.MINEABLE_BY_PICKAXE});
+		PERMAFROST_MOTION_SENSOR_IDLE = new BlockBuilder(RestonedMain.MOD_ID)
+			.build("permafrost.motionsensor.idle", blockId++, b -> new BlockLogicCustomMotionSensor(b,
+				false,
+				PERMAFROST_MOTION_SENSOR_IDLE,
+				PERMAFROST_MOTION_SENSOR_ACTIVE,
+				"mob.zombie"))
+			.withSound(BlockSounds.PERMAFROST)
+			.withHardness(2.0F)
+			.withBlastResistance(10.0F)
+			.withDisabledNeighborNotifyOnMetadataChange()
+			.withOverrideColor(MaterialColor.permafrost)
+			.withTags(new Tag[]{BlockTags.MINEABLE_BY_PICKAXE});
+		PERMAFROST_MOTION_SENSOR_ACTIVE = new BlockBuilder(RestonedMain.MOD_ID)
+			.build("permafrost.motionsensor.active", blockId++, b -> new BlockLogicCustomMotionSensor(b,
+				true,
+				PERMAFROST_MOTION_SENSOR_IDLE,
+				PERMAFROST_MOTION_SENSOR_ACTIVE,
+				"mob.zombie"))
+			.withSound(BlockSounds.PERMAFROST)
+			.withLightEmission(0.3F)
+			.withHardness(2.0F)
+			.withBlastResistance(10.0F)
+			.withOverrideColor(MaterialColor.permafrost)
+			.setStatParent(() -> {return PERMAFROST_MOTION_SENSOR_IDLE;})
+			.withTags(new Tag[]{BlockTags.NOT_IN_CREATIVE_MENU, BlockTags.MINEABLE_BY_PICKAXE});
+		NETHERRACK_MOTION_SENSOR_IDLE = new BlockBuilder(RestonedMain.MOD_ID)
+			.build("netherrack.motionsensor.idle", blockId++, b -> new BlockLogicCustomMotionSensor(b,
+				false,
+				NETHERRACK_MOTION_SENSOR_IDLE,
+				NETHERRACK_MOTION_SENSOR_ACTIVE,
+				"mob.ghast.charge"))
+			.withSound(BlockSounds.STONE)
+			.withHardness(2.0F)
+			.withBlastResistance(10.0F)
+			.withDisabledNeighborNotifyOnMetadataChange()
+			.withOverrideColor(MaterialColor.netherrack)
+			.withTags(new Tag[]{BlockTags.MINEABLE_BY_PICKAXE});
+		NETHERRACK_MOTION_SENSOR_ACTIVE = new BlockBuilder(RestonedMain.MOD_ID)
+			.build("netherrack.motionsensor.active", blockId++, b -> new BlockLogicCustomMotionSensor(b,
+				true,
+				NETHERRACK_MOTION_SENSOR_IDLE,
+				NETHERRACK_MOTION_SENSOR_ACTIVE,
+				"mob.ghast.charge"))
+			.withSound(BlockSounds.STONE)
+			.withLightEmission(0.3F)
+			.withHardness(2.0F)
+			.withBlastResistance(10.0F)
+			.withOverrideColor(MaterialColor.netherrack)
+			.setStatParent(() -> {return NETHERRACK_MOTION_SENSOR_IDLE;})
 			.withTags(new Tag[]{BlockTags.NOT_IN_CREATIVE_MENU, BlockTags.MINEABLE_BY_PICKAXE});
 
 		initBlockDetails();

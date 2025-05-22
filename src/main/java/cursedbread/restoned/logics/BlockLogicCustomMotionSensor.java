@@ -21,12 +21,14 @@ public class BlockLogicCustomMotionSensor extends BlockLogicVeryRotatable {
 	public final boolean isActive;
 	protected Block idle_block;
 	protected Block active_block;
-	public BlockLogicCustomMotionSensor(Block<?> block, boolean isActive, Block idle, Block active) {
+	protected String sound_block;
+	public BlockLogicCustomMotionSensor(Block<?> block, boolean isActive, Block idle, Block active, String sound) {
 		super(block, Material.glass);
 		this.isActive = isActive;
 		this.idle_block = idle;
 		this.active_block = active;
-		block.withEntity(() -> new TileEntityCustomSensor(this.idle_block, this.active_block));
+		this.sound_block = sound;
+		block.withEntity(() -> new TileEntityCustomSensor(this.idle_block, this.active_block, this.sound_block));
 	}
 
 	public void animationTick(World world, int x, int y, int z, Random rand) {

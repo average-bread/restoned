@@ -21,9 +21,11 @@ import java.util.List;
 public class TileEntityCustomSensor extends TileEntity {
 	protected Block idle_block;
 	protected Block active_block;
-	public TileEntityCustomSensor(Block idle, Block active) {
+	protected String sound_block;
+	public TileEntityCustomSensor(Block idle, Block active, String sound) {
 		this.idle_block = idle;
 		this.active_block = active;
+		this.sound_block = sound;
 	}
 
 	private int getSightRange(World world, double x, double y, double z, Direction facing) {
@@ -91,7 +93,7 @@ public class TileEntityCustomSensor extends TileEntity {
 			}
 
 			if (shouldBeActive && id == idle_block.id()) {
-				this.worldObj.playSoundEffect((Entity)null, SoundCategory.WORLD_SOUNDS, (double)this.x + 0.5, (double)this.y + 0.5, (double)this.z + 0.5, "tile.sensor_block.sense", 1.0F, this.worldObj.rand.nextFloat());
+				this.worldObj.playSoundEffect((Entity)null, SoundCategory.WORLD_SOUNDS, (double)this.x + 0.5, (double)this.y + 0.5, (double)this.z + 0.5, sound_block, 1.0F, 1.0F);
 				this.updateSensorBlockState(true, this.worldObj);
 			}
 
@@ -129,7 +131,7 @@ public class TileEntityCustomSensor extends TileEntity {
 			}
 
 			if (shouldBeActive && id == idle_block.id()) {
-				world.playSoundEffect((Entity)null, SoundCategory.WORLD_SOUNDS, (double)this.x + 0.5, (double)this.y + 0.5, (double)this.z + 0.5, "tile.sensor_block.sense", 1.0F, world.rand.nextFloat());
+				world.playSoundEffect((Entity)null, SoundCategory.WORLD_SOUNDS, (double)this.x + 0.5, (double)this.y + 0.5, (double)this.z + 0.5, sound_block, 1.0F, 1.0F);
 				this.updateSensorBlockState(true, world);
 			}
 
