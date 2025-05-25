@@ -1,14 +1,19 @@
 package cursedbread.restoned;
 
 import cursedbread.restoned.logics.BlockLogicCustomMotionSensor;
+import cursedbread.restoned.logics.BlockLogicCustomRepeater;
 import net.minecraft.core.block.*;
 import net.minecraft.core.block.material.Material;
 import net.minecraft.core.block.material.MaterialColor;
+import net.minecraft.core.block.piston.BlockLogicPistonBase;
+import net.minecraft.core.block.piston.BlockLogicPistonBaseSteel;
+import net.minecraft.core.block.piston.BlockLogicPistonBaseSticky;
 import net.minecraft.core.block.tag.BlockTags;
 import net.minecraft.core.data.tag.Tag;
 import net.minecraft.core.entity.Mob;
 import net.minecraft.core.entity.player.Player;
 import net.minecraft.core.item.ItemStack;
+import net.minecraft.core.item.Items;
 import net.minecraft.core.sound.BlockSound;
 import net.minecraft.core.sound.BlockSounds;
 import turniplabs.halplibe.helper.BlockBuilder;
@@ -16,6 +21,7 @@ import turniplabs.halplibe.helper.CreativeHelper;
 
 import java.util.function.Supplier;
 
+import static cursedbread.restoned.RestonedMain.LOGGER;
 import static net.minecraft.core.block.Blocks.BRICK_MARBLE;
 import static net.minecraft.core.block.Blocks.GRAVEL;
 
@@ -118,6 +124,69 @@ public class RestonedBlocks {
 	public static Block <BlockLogicMotionSensor> PERMAFROST_MOTION_SENSOR_ACTIVE;
 	public static Block <BlockLogicMotionSensor> NETHERRACK_MOTION_SENSOR_IDLE;
 	public static Block <BlockLogicMotionSensor> NETHERRACK_MOTION_SENSOR_ACTIVE;
+
+	public static Block<BlockLogicPistonBase> BASALT_PISTON_BASE;
+	public static Block<BlockLogicPistonBase> LIMESTONE_PISTON_BASE;
+	public static Block<BlockLogicPistonBase> GRANITE_PISTON_BASE;
+	public static Block<BlockLogicPistonBase> MARBLE_PISTON_BASE;
+	public static Block<BlockLogicPistonBase> SLATE_PISTON_BASE;
+	public static Block<BlockLogicPistonBase> PERMAFROST_PISTON_BASE;
+	public static Block<BlockLogicPistonBase> NETHERRACK_PISTON_BASE;
+
+	public static Block<BlockLogicPistonBase> BASALT_PISTON_BASE_STICKY;
+	public static Block<BlockLogicPistonBase> LIMESTONE_PISTON_BASE_STICKY;
+	public static Block<BlockLogicPistonBase> GRANITE_PISTON_BASE_STICKY;
+	public static Block<BlockLogicPistonBase> MARBLE_PISTON_BASE_STICKY;
+	public static Block<BlockLogicPistonBase> SLATE_PISTON_BASE_STICKY;
+	public static Block<BlockLogicPistonBase> PERMAFROST_PISTON_BASE_STICKY;
+	public static Block<BlockLogicPistonBase> NETHERRACK_PISTON_BASE_STICKY;
+
+	public static Block<BlockLogicPistonBase> BASALT_PISTON_BASE_STEEL;
+	public static Block<BlockLogicPistonBase> LIMESTONE_PISTON_BASE_STEEL;
+	public static Block<BlockLogicPistonBase> GRANITE_PISTON_BASE_STEEL;
+	public static Block<BlockLogicPistonBase> MARBLE_PISTON_BASE_STEEL;
+	public static Block<BlockLogicPistonBase> SLATE_PISTON_BASE_STEEL;
+	public static Block<BlockLogicPistonBase> PERMAFROST_PISTON_BASE_STEEL;
+	public static Block<BlockLogicPistonBase> NETHERRACK_PISTON_BASE_STEEL;
+
+	public static Block <?> BASALT_SPIKES;
+	public static Block <?> LIMESTONE_SPIKES;
+	public static Block <?> GRANITE_SPIKES;
+	public static Block <?> MARBLE_SPIKES;
+	public static Block <?> SLATE_SPIKES;
+	public static Block <?> PERMAFROST_SPIKES;
+	public static Block <?> NETHERRACK_SPIKES;
+
+	public static Block <?> DISPENSER_COBBLE_BASALT;
+	public static Block <?> DISPENSER_COBBLE_LIMESTONE;
+	public static Block <?> DISPENSER_COBBLE_GRANITE;
+	public static Block <?> DISPENSER_COBBLE_MARBLE;
+	public static Block <?> DISPENSER_COBBLE_SLATE;
+	public static Block <?> DISPENSER_COBBLE_PERMAFROST;
+	public static Block <?> DISPENSER_COBBLE_NETHERRACK;
+
+	public static Block<BlockLogicRepeater> REPEATER_IDLE_BASALT;
+	public static Block<BlockLogicRepeater> REPEATER_ACTIVE_BASALT;
+	public static Block<BlockLogicRepeater> REPEATER_IDLE_LIMESTONE;
+	public static Block<BlockLogicRepeater> REPEATER_ACTIVE_LIMESTONE;
+	public static Block<BlockLogicRepeater> REPEATER_IDLE_GRANITE;
+	public static Block<BlockLogicRepeater> REPEATER_ACTIVE_GRANITE;
+	public static Block<BlockLogicRepeater> REPEATER_IDLE_MARBLE;
+	public static Block<BlockLogicRepeater> REPEATER_ACTIVE_MARBLE;
+	public static Block<BlockLogicRepeater> REPEATER_IDLE_SLATE;
+	public static Block<BlockLogicRepeater> REPEATER_ACTIVE_SLATE;
+	public static Block<BlockLogicRepeater> REPEATER_IDLE_PERMAFROST;
+	public static Block<BlockLogicRepeater> REPEATER_ACTIVE_PERMAFROST;
+	public static Block<BlockLogicRepeater> REPEATER_IDLE_NETHERRACK;
+	public static Block<BlockLogicRepeater> REPEATER_ACTIVE_NETHERRACK;
+
+	public static Block<?> ACTIVATOR_COBBLE_STONE;
+	public static Block<?> ACTIVATOR_COBBLE_BASALT;
+	public static Block<?> ACTIVATOR_COBBLE_LIMESTONE;
+	public static Block<?> ACTIVATOR_COBBLE_GRANITE;
+	public static Block<?> ACTIVATOR_COBBLE_MARBLE;
+	public static Block<?> ACTIVATOR_COBBLE_SLATE;
+	public static Block<?> ACTIVATOR_COBBLE_PERMAFROST;
 
 	public void initBlockDetails(){
 
@@ -286,7 +355,7 @@ public class RestonedBlocks {
 			.withSound(BlockSounds.STONE)
 			.withDisabledNeighborNotifyOnMetadataChange()
 			.withLitInteriorSurface(true)
-			.withTags(new Tag[]{BlockTags.MINEABLE_BY_PICKAXE});
+			.withTags(new Tag[]{BlockTags.MINEABLE_BY_PICKAXE, BlockTags.INFINITE_BURN});
 
 		STAIRS_COBBLE_MARBLE = new BlockBuilder(RestonedMain.MOD_ID)
 			.build("stairs.cobble.marble", blockId++, b -> new BlockLogicStairs(b, COBBLE_MARBLE))
@@ -377,7 +446,7 @@ public class RestonedBlocks {
 			.setBlockSound(BlockSounds.STONE)
 			.setHardness(1.0F)
 			.setResistance(10.0F)
-			.setTags(new Tag[]{BlockTags.NOT_IN_CREATIVE_MENU, BlockTags.MINEABLE_BY_PICKAXE})
+			.setTags(new Tag[]{BlockTags.NOT_IN_CREATIVE_MENU, BlockTags.MINEABLE_BY_PICKAXE, BlockTags.INFINITE_BURN})
 			.build("capstone.netherrack", blockId++, b -> new BlockLogic(b, Material.netherrack))
 			.withDisabledNeighborNotifyOnMetadataChange();
 
@@ -420,7 +489,7 @@ public class RestonedBlocks {
 		BUTTON_NETHERRACK = new BlockBuilder(RestonedMain.MOD_ID)
 			.setBlockSound(BlockSounds.STONE)
 			.setHardness(0.5F)
-			.setTags(new Tag[]{BlockTags.BROKEN_BY_FLUIDS, BlockTags.MINEABLE_BY_PICKAXE, BlockTags.PREVENT_MOB_SPAWNS})
+			.setTags(new Tag[]{BlockTags.BROKEN_BY_FLUIDS, BlockTags.MINEABLE_BY_PICKAXE, BlockTags.PREVENT_MOB_SPAWNS, BlockTags.INFINITE_BURN})
 			.build("button.netherrack", blockId++, b -> new BlockLogicButton(b))
 			.withDisabledNeighborNotifyOnMetadataChange();
 
@@ -463,7 +532,7 @@ public class RestonedBlocks {
 		LEVER_COBBLE_NETHERRACK = new BlockBuilder(RestonedMain.MOD_ID)
 			.setBlockSound(BlockSounds.STONE)
 			.setHardness(0.5F)
-			.setTags(new Tag[]{BlockTags.BROKEN_BY_FLUIDS, BlockTags.MINEABLE_BY_PICKAXE, BlockTags.PREVENT_MOB_SPAWNS})
+			.setTags(new Tag[]{BlockTags.BROKEN_BY_FLUIDS, BlockTags.MINEABLE_BY_PICKAXE, BlockTags.PREVENT_MOB_SPAWNS, BlockTags.INFINITE_BURN})
 			.build("lever.cobble.netherrack", blockId++, b -> new BlockLogicLever(b))
 			.withDisabledNeighborNotifyOnMetadataChange();
 
@@ -506,7 +575,7 @@ public class RestonedBlocks {
 		PRESSURE_PLATE_NETHERRACK = new BlockBuilder(RestonedMain.MOD_ID)
 			.setBlockSound(BlockSounds.STONE)
 			.setHardness(0.5F)
-			.setTags(new Tag[]{BlockTags.MINEABLE_BY_PICKAXE, BlockTags.PREVENT_MOB_SPAWNS})
+			.setTags(new Tag[]{BlockTags.MINEABLE_BY_PICKAXE, BlockTags.PREVENT_MOB_SPAWNS, BlockTags.INFINITE_BURN})
 			.build("pressureplate.netherrack", blockId++, b -> new BlockLogicPressurePlate(b, Mob.class, Material.netherrack))
 			.withDisabledNeighborNotifyOnMetadataChange();
 
@@ -549,7 +618,7 @@ public class RestonedBlocks {
 		PRESSURE_PLATE_COBBLE_NETHERRACK = new BlockBuilder(RestonedMain.MOD_ID)
 			.setBlockSound(BlockSounds.STONE)
 			.setHardness(0.5F)
-			.setTags(new Tag[]{BlockTags.MINEABLE_BY_PICKAXE, BlockTags.PREVENT_MOB_SPAWNS})
+			.setTags(new Tag[]{BlockTags.MINEABLE_BY_PICKAXE, BlockTags.PREVENT_MOB_SPAWNS, BlockTags.INFINITE_BURN})
 			.build("pressureplate.cobble.netherrack", blockId++, b -> new BlockLogicPressurePlate(b, Player.class, Material.netherrack))
 			.withDisabledNeighborNotifyOnMetadataChange();
 
@@ -558,7 +627,7 @@ public class RestonedBlocks {
 				false,
 				BASALT_MOTION_SENSOR_IDLE,
 				BASALT_MOTION_SENSOR_ACTIVE,
-				"random.breath"))
+				"mob.zombiedeath"))
 			.withSound(BlockSounds.STONE)
 			.withHardness(2.0F)
 			.withBlastResistance(10.0F)
@@ -570,7 +639,7 @@ public class RestonedBlocks {
 				true,
 				BASALT_MOTION_SENSOR_IDLE,
 				BASALT_MOTION_SENSOR_ACTIVE,
-				"random.breath"))
+				"mob.zombiedeath"))
 			.withSound(BlockSounds.STONE)
 			.withLightEmission(0.3F)
 			.withHardness(2.0F)
@@ -583,7 +652,7 @@ public class RestonedBlocks {
 				false,
 				LIMESTONE_MOTION_SENSOR_IDLE,
 				LIMESTONE_MOTION_SENSOR_ACTIVE,
-				"tile.sensor_block.sense"))
+				"mob.spider"))
 			.withSound(BlockSounds.STONE)
 			.withHardness(2.0F)
 			.withBlastResistance(10.0F)
@@ -595,7 +664,7 @@ public class RestonedBlocks {
 				true,
 				LIMESTONE_MOTION_SENSOR_IDLE,
 				LIMESTONE_MOTION_SENSOR_ACTIVE,
-				"tile.sensor_block.sense"))
+				"mob.spider"))
 			.withSound(BlockSounds.STONE)
 			.withLightEmission(0.3F)
 			.withHardness(2.0F)
@@ -608,7 +677,7 @@ public class RestonedBlocks {
 				false,
 				GRANITE_MOTION_SENSOR_IDLE,
 				GRANITE_MOTION_SENSOR_ACTIVE,
-				"tile.sensor_block.sense"))
+				"mob.creeper.fuse"))
 			.withSound(BlockSounds.STONE)
 			.withHardness(2.0F)
 			.withBlastResistance(10.0F)
@@ -620,7 +689,7 @@ public class RestonedBlocks {
 				true,
 				GRANITE_MOTION_SENSOR_IDLE,
 				GRANITE_MOTION_SENSOR_ACTIVE,
-				"tile.sensor_block.sense"))
+				"mob.creeper.fuse"))
 			.withSound(BlockSounds.STONE)
 			.withLightEmission(0.3F)
 			.withHardness(2.0F)
@@ -658,7 +727,7 @@ public class RestonedBlocks {
 				false,
 				SLATE_MOTION_SENSOR_IDLE,
 				SLATE_MOTION_SENSOR_ACTIVE,
-				"tile.sensor_block.sense"))
+				"mob.slimeattack"))
 			.withSound(BlockSounds.STONE)
 			.withHardness(2.0F)
 			.withBlastResistance(10.0F)
@@ -670,7 +739,7 @@ public class RestonedBlocks {
 				true,
 				SLATE_MOTION_SENSOR_IDLE,
 				SLATE_MOTION_SENSOR_ACTIVE,
-				"tile.sensor_block.sense"))
+				"mob.slimeattack"))
 			.withSound(BlockSounds.STONE)
 			.withLightEmission(0.3F)
 			.withHardness(2.0F)
@@ -714,7 +783,7 @@ public class RestonedBlocks {
 			.withBlastResistance(10.0F)
 			.withDisabledNeighborNotifyOnMetadataChange()
 			.withOverrideColor(MaterialColor.netherrack)
-			.withTags(new Tag[]{BlockTags.MINEABLE_BY_PICKAXE});
+			.withTags(new Tag[]{BlockTags.MINEABLE_BY_PICKAXE, BlockTags.INFINITE_BURN});
 		NETHERRACK_MOTION_SENSOR_ACTIVE = new BlockBuilder(RestonedMain.MOD_ID)
 			.build("netherrack.motionsensor.active", blockId++, b -> new BlockLogicCustomMotionSensor(b,
 				true,
@@ -727,8 +796,422 @@ public class RestonedBlocks {
 			.withBlastResistance(10.0F)
 			.withOverrideColor(MaterialColor.netherrack)
 			.setStatParent(() -> {return NETHERRACK_MOTION_SENSOR_IDLE;})
-			.withTags(new Tag[]{BlockTags.NOT_IN_CREATIVE_MENU, BlockTags.MINEABLE_BY_PICKAXE});
+			.withTags(new Tag[]{BlockTags.NOT_IN_CREATIVE_MENU, BlockTags.MINEABLE_BY_PICKAXE, BlockTags.INFINITE_BURN});
+
+		BASALT_PISTON_BASE = new BlockBuilder(RestonedMain.MOD_ID)
+			.build("piston.base.basalt", blockId++, b -> new BlockLogicPistonBase(b, 12))
+			.withSound(BlockSounds.STONE)
+			.withDisabledNeighborNotifyOnMetadataChange()
+			.withTags(new Tag[]{BlockTags.MINEABLE_BY_PICKAXE});
+		LIMESTONE_PISTON_BASE = new BlockBuilder(RestonedMain.MOD_ID)
+			.build("piston.base.limestone", blockId++, b -> new BlockLogicPistonBase(b, 12))
+			.withSound(BlockSounds.STONE)
+			.withDisabledNeighborNotifyOnMetadataChange()
+			.withTags(new Tag[]{BlockTags.MINEABLE_BY_PICKAXE});
+		GRANITE_PISTON_BASE = new BlockBuilder(RestonedMain.MOD_ID)
+			.build("piston.base.granite", blockId++, b -> new BlockLogicPistonBase(b, 12))
+			.withSound(BlockSounds.STONE)
+			.withDisabledNeighborNotifyOnMetadataChange()
+			.withTags(new Tag[]{BlockTags.MINEABLE_BY_PICKAXE});
+		MARBLE_PISTON_BASE = new BlockBuilder(RestonedMain.MOD_ID)
+			.build("piston.base.marble", blockId++, b -> new BlockLogicPistonBase(b, 12))
+			.withSound(BlockSounds.STONE)
+			.withDisabledNeighborNotifyOnMetadataChange()
+			.withTags(new Tag[]{BlockTags.MINEABLE_BY_PICKAXE});
+		SLATE_PISTON_BASE = new BlockBuilder(RestonedMain.MOD_ID)
+			.build("piston.base.slate", blockId++, b -> new BlockLogicPistonBase(b, 12))
+			.withSound(BlockSounds.STONE)
+			.withDisabledNeighborNotifyOnMetadataChange()
+			.withTags(new Tag[]{BlockTags.MINEABLE_BY_PICKAXE});
+		PERMAFROST_PISTON_BASE = new BlockBuilder(RestonedMain.MOD_ID)
+			.build("piston.base.permafrost", blockId++, b -> new BlockLogicPistonBase(b, 12))
+			.withSound(BlockSounds.PERMAFROST)
+			.withDisabledNeighborNotifyOnMetadataChange()
+			.withTags(new Tag[]{BlockTags.MINEABLE_BY_PICKAXE});
+		NETHERRACK_PISTON_BASE = new BlockBuilder(RestonedMain.MOD_ID)
+			.build("piston.base.netherrack", blockId++, b -> new BlockLogicPistonBase(b, 12))
+			.withSound(BlockSounds.STONE)
+			.withDisabledNeighborNotifyOnMetadataChange()
+			.withTags(new Tag[]{BlockTags.MINEABLE_BY_PICKAXE, BlockTags.INFINITE_BURN});
+
+		BASALT_PISTON_BASE_STICKY = new BlockBuilder(RestonedMain.MOD_ID)
+			.build("piston.base.sticky.basalt", blockId++, b -> new BlockLogicPistonBaseSticky(b, 12))
+			.withSound(BlockSounds.STONE)
+			.withDisabledNeighborNotifyOnMetadataChange()
+			.withTags(new Tag[]{BlockTags.MINEABLE_BY_PICKAXE});
+		LIMESTONE_PISTON_BASE_STICKY = new BlockBuilder(RestonedMain.MOD_ID)
+			.build("piston.base.sticky.limestone", blockId++, b -> new BlockLogicPistonBaseSticky(b, 12))
+			.withSound(BlockSounds.STONE)
+			.withDisabledNeighborNotifyOnMetadataChange()
+			.withTags(new Tag[]{BlockTags.MINEABLE_BY_PICKAXE});
+		GRANITE_PISTON_BASE_STICKY = new BlockBuilder(RestonedMain.MOD_ID)
+			.build("piston.base.sticky.granite", blockId++, b -> new BlockLogicPistonBaseSticky(b, 12))
+			.withSound(BlockSounds.STONE)
+			.withDisabledNeighborNotifyOnMetadataChange()
+			.withTags(new Tag[]{BlockTags.MINEABLE_BY_PICKAXE});
+		MARBLE_PISTON_BASE_STICKY = new BlockBuilder(RestonedMain.MOD_ID)
+			.build("piston.base.sticky.marble", blockId++, b -> new BlockLogicPistonBaseSticky(b, 12))
+			.withSound(BlockSounds.STONE)
+			.withDisabledNeighborNotifyOnMetadataChange()
+			.withTags(new Tag[]{BlockTags.MINEABLE_BY_PICKAXE});
+		SLATE_PISTON_BASE_STICKY = new BlockBuilder(RestonedMain.MOD_ID)
+			.build("piston.base.sticky.slate", blockId++, b -> new BlockLogicPistonBaseSticky(b, 12))
+			.withSound(BlockSounds.STONE)
+			.withDisabledNeighborNotifyOnMetadataChange()
+			.withTags(new Tag[]{BlockTags.MINEABLE_BY_PICKAXE});
+		PERMAFROST_PISTON_BASE_STICKY = new BlockBuilder(RestonedMain.MOD_ID)
+			.build("piston.base.sticky.permafrost", blockId++, b -> new BlockLogicPistonBaseSticky(b, 12))
+			.withSound(BlockSounds.PERMAFROST)
+			.withDisabledNeighborNotifyOnMetadataChange()
+			.withTags(new Tag[]{BlockTags.MINEABLE_BY_PICKAXE});
+		NETHERRACK_PISTON_BASE_STICKY = new BlockBuilder(RestonedMain.MOD_ID)
+			.build("piston.base.sticky.netherrack", blockId++, b -> new BlockLogicPistonBaseSticky(b, 12))
+			.withSound(BlockSounds.STONE)
+			.withDisabledNeighborNotifyOnMetadataChange()
+			.withTags(new Tag[]{BlockTags.MINEABLE_BY_PICKAXE, BlockTags.INFINITE_BURN});
+
+		BASALT_PISTON_BASE_STEEL = new BlockBuilder(RestonedMain.MOD_ID)
+			.build("piston.base.steel.basalt", blockId++, b -> new BlockLogicPistonBaseSteel(b, 24))
+			.withSound(BlockSounds.METAL)
+			.withHardness(5.0F)
+			.withBlastResistance(2000.0F)
+			.withOverrideColor(MaterialColor.steel)
+			.withDisabledNeighborNotifyOnMetadataChange()
+			.withTags(new Tag[]{BlockTags.MINEABLE_BY_PICKAXE});
+		LIMESTONE_PISTON_BASE_STEEL = new BlockBuilder(RestonedMain.MOD_ID)
+			.build("piston.base.steel.limestone", blockId++, b -> new BlockLogicPistonBaseSteel(b, 24))
+			.withSound(BlockSounds.METAL)
+			.withHardness(5.0F)
+			.withBlastResistance(2000.0F)
+			.withOverrideColor(MaterialColor.steel)
+			.withDisabledNeighborNotifyOnMetadataChange()
+			.withTags(new Tag[]{BlockTags.MINEABLE_BY_PICKAXE});
+		GRANITE_PISTON_BASE_STEEL = new BlockBuilder(RestonedMain.MOD_ID)
+			.build("piston.base.steel.granite", blockId++, b -> new BlockLogicPistonBaseSteel(b, 24))
+			.withSound(BlockSounds.METAL)
+			.withHardness(5.0F)
+			.withBlastResistance(2000.0F)
+			.withOverrideColor(MaterialColor.steel)
+			.withDisabledNeighborNotifyOnMetadataChange()
+			.withTags(new Tag[]{BlockTags.MINEABLE_BY_PICKAXE});
+		MARBLE_PISTON_BASE_STEEL = new BlockBuilder(RestonedMain.MOD_ID)
+			.build("piston.base.steel.marble", blockId++, b -> new BlockLogicPistonBaseSteel(b, 24))
+			.withSound(BlockSounds.METAL)
+			.withHardness(5.0F)
+			.withBlastResistance(2000.0F)
+			.withOverrideColor(MaterialColor.steel)
+			.withDisabledNeighborNotifyOnMetadataChange()
+			.withTags(new Tag[]{BlockTags.MINEABLE_BY_PICKAXE});
+		SLATE_PISTON_BASE_STEEL = new BlockBuilder(RestonedMain.MOD_ID)
+			.build("piston.base.steel.slate", blockId++, b -> new BlockLogicPistonBaseSteel(b, 24))
+			.withSound(BlockSounds.METAL)
+			.withHardness(5.0F)
+			.withBlastResistance(2000.0F)
+			.withOverrideColor(MaterialColor.steel)
+			.withDisabledNeighborNotifyOnMetadataChange()
+			.withTags(new Tag[]{BlockTags.MINEABLE_BY_PICKAXE});
+		PERMAFROST_PISTON_BASE_STEEL = new BlockBuilder(RestonedMain.MOD_ID)
+			.build("piston.base.steel.permafrost", blockId++, b -> new BlockLogicPistonBaseSteel(b, 24))
+			.withSound(BlockSounds.PERMAFROST)
+			.withHardness(5.0F)
+			.withBlastResistance(2000.0F)
+			.withOverrideColor(MaterialColor.steel)
+			.withDisabledNeighborNotifyOnMetadataChange()
+			.withTags(new Tag[]{BlockTags.MINEABLE_BY_PICKAXE});
+		NETHERRACK_PISTON_BASE_STEEL = new BlockBuilder(RestonedMain.MOD_ID)
+			.build("piston.base.steel.netherrack", blockId++, b -> new BlockLogicPistonBaseSteel(b, 24))
+			.withSound(BlockSounds.METAL)
+			.withHardness(5.0F)
+			.withBlastResistance(2000.0F)
+			.withOverrideColor(MaterialColor.steel)
+			.withDisabledNeighborNotifyOnMetadataChange()
+			.withTags(new Tag[]{BlockTags.MINEABLE_BY_PICKAXE, BlockTags.INFINITE_BURN});
+
+		BASALT_SPIKES = new BlockBuilder(RestonedMain.MOD_ID)
+			.setBlockSound(BlockSounds.METAL)
+			.setLuminance(3)
+			.setHardness(2.0F)
+			.setTags(new Tag[]{BlockTags.MINEABLE_BY_PICKAXE})
+			.build("spikes.basalt", blockId++, b -> new BlockLogicSpikes(b, Material.metal))
+			.withDisabledNeighborNotifyOnMetadataChange();
+		LIMESTONE_SPIKES = new BlockBuilder(RestonedMain.MOD_ID)
+			.setBlockSound(BlockSounds.METAL)
+			.setLuminance(3)
+			.setHardness(2.0F)
+			.setTags(new Tag[]{BlockTags.MINEABLE_BY_PICKAXE})
+			.build("spikes.limestone", blockId++, b -> new BlockLogicSpikes(b, Material.metal))
+			.withDisabledNeighborNotifyOnMetadataChange();
+		GRANITE_SPIKES = new BlockBuilder(RestonedMain.MOD_ID)
+			.setBlockSound(BlockSounds.METAL)
+			.setLuminance(3)
+			.setHardness(2.0F)
+			.setTags(new Tag[]{BlockTags.MINEABLE_BY_PICKAXE})
+			.build("spikes.granite", blockId++, b -> new BlockLogicSpikes(b, Material.metal))
+			.withDisabledNeighborNotifyOnMetadataChange();
+		MARBLE_SPIKES = new BlockBuilder(RestonedMain.MOD_ID)
+			.setBlockSound(BlockSounds.METAL)
+			.setLuminance(3)
+			.setHardness(2.0F)
+			.setTags(new Tag[]{BlockTags.MINEABLE_BY_PICKAXE})
+			.build("spikes.marble", blockId++, b -> new BlockLogicSpikes(b, Material.metal))
+			.withDisabledNeighborNotifyOnMetadataChange();
+		SLATE_SPIKES = new BlockBuilder(RestonedMain.MOD_ID)
+			.setBlockSound(BlockSounds.METAL)
+			.setLuminance(3)
+			.setHardness(2.0F)
+			.setTags(new Tag[]{BlockTags.MINEABLE_BY_PICKAXE})
+			.build("spikes.slate", blockId++, b -> new BlockLogicSpikes(b, Material.metal))
+			.withDisabledNeighborNotifyOnMetadataChange();
+		PERMAFROST_SPIKES = new BlockBuilder(RestonedMain.MOD_ID)
+			.setBlockSound(BlockSounds.PERMAFROST)
+			.setLuminance(3)
+			.setHardness(2.0F)
+			.setTags(new Tag[]{BlockTags.MINEABLE_BY_PICKAXE})
+			.build("spikes.permafrost", blockId++, b -> new BlockLogicSpikes(b, Material.metal))
+			.withDisabledNeighborNotifyOnMetadataChange();
+		NETHERRACK_SPIKES = new BlockBuilder(RestonedMain.MOD_ID)
+			.setBlockSound(BlockSounds.METAL)
+			.setLuminance(3)
+			.setHardness(2.0F)
+			.setTags(new Tag[]{BlockTags.MINEABLE_BY_PICKAXE, BlockTags.INFINITE_BURN})
+			.build("spikes.netherrack", blockId++, b -> new BlockLogicSpikes(b, Material.metal))
+			.withDisabledNeighborNotifyOnMetadataChange();
+
+		DISPENSER_COBBLE_BASALT = new BlockBuilder(RestonedMain.MOD_ID)
+			.setBlockSound(BlockSounds.STONE)
+			.setHardness(3.5F)
+			.setTags(new Tag[]{BlockTags.MINEABLE_BY_PICKAXE})
+			.build("dispenser.cobble.basalt", blockId++, b -> new BlockLogicDispenser(b))
+			.withDisabledNeighborNotifyOnMetadataChange();
+		DISPENSER_COBBLE_LIMESTONE = new BlockBuilder(RestonedMain.MOD_ID)
+			.setBlockSound(BlockSounds.STONE)
+			.setHardness(3.5F)
+			.setTags(new Tag[]{BlockTags.MINEABLE_BY_PICKAXE})
+			.build("dispenser.cobble.limestone", blockId++, b -> new BlockLogicDispenser(b))
+			.withDisabledNeighborNotifyOnMetadataChange();
+		DISPENSER_COBBLE_GRANITE = new BlockBuilder(RestonedMain.MOD_ID)
+			.setBlockSound(BlockSounds.STONE)
+			.setHardness(3.5F)
+			.setTags(new Tag[]{BlockTags.MINEABLE_BY_PICKAXE})
+			.build("dispenser.cobble.granite", blockId++, b -> new BlockLogicDispenser(b))
+			.withDisabledNeighborNotifyOnMetadataChange();
+		DISPENSER_COBBLE_MARBLE = new BlockBuilder(RestonedMain.MOD_ID)
+			.setBlockSound(BlockSounds.STONE)
+			.setHardness(3.5F)
+			.setTags(new Tag[]{BlockTags.MINEABLE_BY_PICKAXE})
+			.build("dispenser.cobble.marble", blockId++, b -> new BlockLogicDispenser(b))
+			.withDisabledNeighborNotifyOnMetadataChange();
+		DISPENSER_COBBLE_SLATE = new BlockBuilder(RestonedMain.MOD_ID)
+			.setBlockSound(BlockSounds.STONE)
+			.setHardness(3.5F)
+			.setTags(new Tag[]{BlockTags.MINEABLE_BY_PICKAXE})
+			.build("dispenser.cobble.slate", blockId++, b -> new BlockLogicDispenser(b))
+			.withDisabledNeighborNotifyOnMetadataChange();
+		DISPENSER_COBBLE_PERMAFROST = new BlockBuilder(RestonedMain.MOD_ID)
+			.setBlockSound(BlockSounds.PERMAFROST)
+			.setHardness(3.5F)
+			.setTags(new Tag[]{BlockTags.MINEABLE_BY_PICKAXE})
+			.build("dispenser.cobble.permafrost", blockId++, b -> new BlockLogicDispenser(b))
+			.withDisabledNeighborNotifyOnMetadataChange();
+		DISPENSER_COBBLE_NETHERRACK = new BlockBuilder(RestonedMain.MOD_ID)
+			.setBlockSound(BlockSounds.STONE)
+			.setHardness(3.5F)
+			.setTags(new Tag[]{BlockTags.MINEABLE_BY_PICKAXE, BlockTags.INFINITE_BURN})
+			.build("dispenser.cobble.netherrack", blockId++, b -> new BlockLogicDispenser(b))
+			.withDisabledNeighborNotifyOnMetadataChange();
+
+		REPEATER_IDLE_BASALT = new BlockBuilder(RestonedMain.MOD_ID)
+			.build("repeater.idle.basalt", blockId++, b -> new BlockLogicCustomRepeater(b, false,
+				REPEATER_IDLE_BASALT, REPEATER_ACTIVE_BASALT, RestonedItems.REPEATER_BASALT))
+			.withSound(BlockSounds.STONE)
+			.withHardness(0.0F)
+			.withDisabledStats()
+			.withDisabledNeighborNotifyOnMetadataChange()
+			.withOverrideColor(MaterialColor.redstone)
+			.setStatParent(() -> {return RestonedItems.REPEATER_BASALT;})
+			.withTags(new Tag[]{BlockTags.MINEABLE_BY_PICKAXE, BlockTags.BROKEN_BY_FLUIDS, BlockTags.NOT_IN_CREATIVE_MENU, BlockTags.PREVENT_MOB_SPAWNS});
+		REPEATER_ACTIVE_BASALT = new BlockBuilder(RestonedMain.MOD_ID)
+			.build("repeater.active.basalt", blockId++, b -> new BlockLogicCustomRepeater(b, true,
+				REPEATER_IDLE_BASALT, REPEATER_ACTIVE_BASALT, RestonedItems.REPEATER_BASALT))
+			.withSound(BlockSounds.STONE)
+			.withHardness(0.0F)
+			.withLightEmission(0.625F)
+			.withDisabledStats()
+			.withDisabledNeighborNotifyOnMetadataChange()
+			.withOverrideColor(MaterialColor.redstone)
+			.setStatParent(() -> {return REPEATER_IDLE_BASALT;})
+			.withTags(new Tag[]{BlockTags.MINEABLE_BY_PICKAXE, BlockTags.BROKEN_BY_FLUIDS, BlockTags.NOT_IN_CREATIVE_MENU, BlockTags.PREVENT_MOB_SPAWNS});
+		REPEATER_IDLE_LIMESTONE = new BlockBuilder(RestonedMain.MOD_ID)
+			.build("repeater.idle.limestone", blockId++, b -> new BlockLogicCustomRepeater(b, false,
+				REPEATER_IDLE_LIMESTONE, REPEATER_ACTIVE_LIMESTONE, RestonedItems.REPEATER_LIMESTONE))
+			.withSound(BlockSounds.STONE)
+			.withHardness(0.0F)
+			.withDisabledStats()
+			.withDisabledNeighborNotifyOnMetadataChange()
+			.withOverrideColor(MaterialColor.redstone)
+			.setStatParent(() -> {return RestonedItems.REPEATER_LIMESTONE;})
+			.withTags(new Tag[]{BlockTags.MINEABLE_BY_PICKAXE, BlockTags.BROKEN_BY_FLUIDS, BlockTags.NOT_IN_CREATIVE_MENU, BlockTags.PREVENT_MOB_SPAWNS});
+		REPEATER_ACTIVE_LIMESTONE = new BlockBuilder(RestonedMain.MOD_ID)
+			.build("repeater.active.limestone", blockId++, b -> new BlockLogicCustomRepeater(b, true,
+				REPEATER_IDLE_LIMESTONE, REPEATER_ACTIVE_LIMESTONE, RestonedItems.REPEATER_LIMESTONE))
+			.withSound(BlockSounds.STONE)
+			.withHardness(0.0F)
+			.withLightEmission(0.625F)
+			.withDisabledStats()
+			.withDisabledNeighborNotifyOnMetadataChange()
+			.withOverrideColor(MaterialColor.redstone)
+			.setStatParent(() -> {return REPEATER_IDLE_LIMESTONE;})
+			.withTags(new Tag[]{BlockTags.MINEABLE_BY_PICKAXE, BlockTags.BROKEN_BY_FLUIDS, BlockTags.NOT_IN_CREATIVE_MENU, BlockTags.PREVENT_MOB_SPAWNS});
+		REPEATER_IDLE_GRANITE = new BlockBuilder(RestonedMain.MOD_ID)
+			.build("repeater.idle.granite", blockId++, b -> new BlockLogicCustomRepeater(b, false,
+				REPEATER_IDLE_GRANITE, REPEATER_ACTIVE_GRANITE, RestonedItems.REPEATER_GRANITE))
+			.withSound(BlockSounds.STONE)
+			.withHardness(0.0F)
+			.withDisabledStats()
+			.withDisabledNeighborNotifyOnMetadataChange()
+			.withOverrideColor(MaterialColor.redstone)
+			.setStatParent(() -> {return RestonedItems.REPEATER_GRANITE;})
+			.withTags(new Tag[]{BlockTags.MINEABLE_BY_PICKAXE, BlockTags.BROKEN_BY_FLUIDS, BlockTags.NOT_IN_CREATIVE_MENU, BlockTags.PREVENT_MOB_SPAWNS});
+		REPEATER_ACTIVE_GRANITE = new BlockBuilder(RestonedMain.MOD_ID)
+			.build("repeater.active.granite", blockId++, b -> new BlockLogicCustomRepeater(b, true,
+				REPEATER_IDLE_GRANITE, REPEATER_ACTIVE_GRANITE, RestonedItems.REPEATER_GRANITE))
+			.withSound(BlockSounds.STONE)
+			.withHardness(0.0F)
+			.withLightEmission(0.625F)
+			.withDisabledStats()
+			.withDisabledNeighborNotifyOnMetadataChange()
+			.withOverrideColor(MaterialColor.redstone)
+			.setStatParent(() -> {return REPEATER_IDLE_GRANITE;})
+			.withTags(new Tag[]{BlockTags.MINEABLE_BY_PICKAXE, BlockTags.BROKEN_BY_FLUIDS, BlockTags.NOT_IN_CREATIVE_MENU, BlockTags.PREVENT_MOB_SPAWNS});
+		REPEATER_IDLE_MARBLE = new BlockBuilder(RestonedMain.MOD_ID)
+			.build("repeater.idle.marble", blockId++, b -> new BlockLogicCustomRepeater(b, false,
+				REPEATER_IDLE_MARBLE, REPEATER_ACTIVE_MARBLE, RestonedItems.REPEATER_MARBLE))
+			.withSound(BlockSounds.STONE)
+			.withHardness(0.0F)
+			.withDisabledStats()
+			.withDisabledNeighborNotifyOnMetadataChange()
+			.withOverrideColor(MaterialColor.redstone)
+			.setStatParent(() -> {return RestonedItems.REPEATER_MARBLE;})
+			.withTags(new Tag[]{BlockTags.MINEABLE_BY_PICKAXE, BlockTags.BROKEN_BY_FLUIDS, BlockTags.NOT_IN_CREATIVE_MENU, BlockTags.PREVENT_MOB_SPAWNS});
+		REPEATER_ACTIVE_MARBLE = new BlockBuilder(RestonedMain.MOD_ID)
+			.build("repeater.active.marble", blockId++, b -> new BlockLogicCustomRepeater(b, true,
+				REPEATER_IDLE_MARBLE, REPEATER_ACTIVE_MARBLE, RestonedItems.REPEATER_MARBLE))
+			.withSound(BlockSounds.STONE)
+			.withHardness(0.0F)
+			.withLightEmission(0.625F)
+			.withDisabledStats()
+			.withDisabledNeighborNotifyOnMetadataChange()
+			.withOverrideColor(MaterialColor.redstone)
+			.setStatParent(() -> {return REPEATER_IDLE_MARBLE;})
+			.withTags(new Tag[]{BlockTags.MINEABLE_BY_PICKAXE, BlockTags.BROKEN_BY_FLUIDS, BlockTags.NOT_IN_CREATIVE_MENU, BlockTags.PREVENT_MOB_SPAWNS});
+		REPEATER_IDLE_SLATE = new BlockBuilder(RestonedMain.MOD_ID)
+			.build("repeater.idle.slate", blockId++, b -> new BlockLogicCustomRepeater(b, false,
+				REPEATER_IDLE_SLATE, REPEATER_ACTIVE_SLATE, RestonedItems.REPEATER_SLATE))
+			.withSound(BlockSounds.STONE)
+			.withHardness(0.0F)
+			.withDisabledStats()
+			.withDisabledNeighborNotifyOnMetadataChange()
+			.withOverrideColor(MaterialColor.redstone)
+			.setStatParent(() -> {return RestonedItems.REPEATER_SLATE;})
+			.withTags(new Tag[]{BlockTags.MINEABLE_BY_PICKAXE, BlockTags.BROKEN_BY_FLUIDS, BlockTags.NOT_IN_CREATIVE_MENU, BlockTags.PREVENT_MOB_SPAWNS});
+		REPEATER_ACTIVE_SLATE = new BlockBuilder(RestonedMain.MOD_ID)
+			.build("repeater.active.slate", blockId++, b -> new BlockLogicCustomRepeater(b, true,
+				REPEATER_IDLE_SLATE, REPEATER_ACTIVE_SLATE, RestonedItems.REPEATER_SLATE))
+			.withSound(BlockSounds.STONE)
+			.withHardness(0.0F)
+			.withLightEmission(0.625F)
+			.withDisabledStats()
+			.withDisabledNeighborNotifyOnMetadataChange()
+			.withOverrideColor(MaterialColor.redstone)
+			.setStatParent(() -> {return REPEATER_IDLE_SLATE;})
+			.withTags(new Tag[]{BlockTags.MINEABLE_BY_PICKAXE, BlockTags.BROKEN_BY_FLUIDS, BlockTags.NOT_IN_CREATIVE_MENU, BlockTags.PREVENT_MOB_SPAWNS});
+		REPEATER_IDLE_PERMAFROST = new BlockBuilder(RestonedMain.MOD_ID)
+			.build("repeater.idle.permafrost", blockId++, b -> new BlockLogicCustomRepeater(b, false,
+				REPEATER_IDLE_PERMAFROST, REPEATER_ACTIVE_PERMAFROST, RestonedItems.REPEATER_PERMAFROST))
+			.withSound(BlockSounds.PERMAFROST)
+			.withHardness(0.0F)
+			.withDisabledStats()
+			.withDisabledNeighborNotifyOnMetadataChange()
+			.withOverrideColor(MaterialColor.redstone)
+			.setStatParent(() -> {return RestonedItems.REPEATER_PERMAFROST;})
+			.withTags(new Tag[]{BlockTags.MINEABLE_BY_PICKAXE, BlockTags.BROKEN_BY_FLUIDS, BlockTags.NOT_IN_CREATIVE_MENU, BlockTags.PREVENT_MOB_SPAWNS});
+		REPEATER_ACTIVE_PERMAFROST = new BlockBuilder(RestonedMain.MOD_ID)
+			.build("repeater.active.permafrost", blockId++, b -> new BlockLogicCustomRepeater(b, true,
+				REPEATER_IDLE_PERMAFROST, REPEATER_ACTIVE_PERMAFROST, RestonedItems.REPEATER_PERMAFROST))
+			.withSound(BlockSounds.PERMAFROST)
+			.withHardness(0.0F)
+			.withLightEmission(0.625F)
+			.withDisabledStats()
+			.withDisabledNeighborNotifyOnMetadataChange()
+			.withOverrideColor(MaterialColor.redstone)
+			.setStatParent(() -> {return REPEATER_IDLE_PERMAFROST;})
+			.withTags(new Tag[]{BlockTags.MINEABLE_BY_PICKAXE, BlockTags.BROKEN_BY_FLUIDS, BlockTags.NOT_IN_CREATIVE_MENU, BlockTags.PREVENT_MOB_SPAWNS});
+		REPEATER_IDLE_NETHERRACK = new BlockBuilder(RestonedMain.MOD_ID)
+			.build("repeater.idle.netherrack", blockId++, b -> new BlockLogicCustomRepeater(b, false,
+				REPEATER_IDLE_NETHERRACK, REPEATER_ACTIVE_NETHERRACK, RestonedItems.REPEATER_NETHERRACK))
+			.withSound(BlockSounds.STONE)
+			.withHardness(0.0F)
+			.withDisabledStats()
+			.withDisabledNeighborNotifyOnMetadataChange()
+			.withOverrideColor(MaterialColor.redstone)
+			.setStatParent(() -> {return RestonedItems.REPEATER_NETHERRACK;})
+			.withTags(new Tag[]{BlockTags.MINEABLE_BY_PICKAXE, BlockTags.BROKEN_BY_FLUIDS, BlockTags.NOT_IN_CREATIVE_MENU, BlockTags.PREVENT_MOB_SPAWNS, BlockTags.INFINITE_BURN});
+		REPEATER_ACTIVE_NETHERRACK = new BlockBuilder(RestonedMain.MOD_ID)
+			.build("repeater.active.netherrack", blockId++, b -> new BlockLogicCustomRepeater(b, true,
+				REPEATER_IDLE_NETHERRACK, REPEATER_ACTIVE_NETHERRACK, RestonedItems.REPEATER_NETHERRACK))
+			.withSound(BlockSounds.STONE)
+			.withHardness(0.0F)
+			.withLightEmission(0.625F)
+			.withDisabledStats()
+			.withDisabledNeighborNotifyOnMetadataChange()
+			.withOverrideColor(MaterialColor.redstone)
+			.setStatParent(() -> {return REPEATER_IDLE_NETHERRACK;})
+			.withTags(new Tag[]{BlockTags.MINEABLE_BY_PICKAXE, BlockTags.BROKEN_BY_FLUIDS, BlockTags.NOT_IN_CREATIVE_MENU, BlockTags.PREVENT_MOB_SPAWNS, BlockTags.INFINITE_BURN});
+
+		ACTIVATOR_COBBLE_STONE = new BlockBuilder(RestonedMain.MOD_ID)
+			.setBlockSound(BlockSounds.STONE)
+			.setHardness(3.5F)
+			.setTags(new Tag[]{BlockTags.MINEABLE_BY_PICKAXE})
+			.build("activator.cobble.stone", blockId++, b -> new BlockLogicActivator(b))
+			.withDisabledNeighborNotifyOnMetadataChange();
+		ACTIVATOR_COBBLE_BASALT = new BlockBuilder(RestonedMain.MOD_ID)
+			.setBlockSound(BlockSounds.STONE)
+			.setHardness(3.5F)
+			.setTags(new Tag[]{BlockTags.MINEABLE_BY_PICKAXE})
+			.build("activator.cobble.basalt", blockId++, b -> new BlockLogicActivator(b))
+			.withDisabledNeighborNotifyOnMetadataChange();
+		ACTIVATOR_COBBLE_LIMESTONE = new BlockBuilder(RestonedMain.MOD_ID)
+			.setBlockSound(BlockSounds.STONE)
+			.setHardness(3.5F)
+			.setTags(new Tag[]{BlockTags.MINEABLE_BY_PICKAXE})
+			.build("activator.cobble.limestone", blockId++, b -> new BlockLogicActivator(b))
+			.withDisabledNeighborNotifyOnMetadataChange();
+		ACTIVATOR_COBBLE_GRANITE = new BlockBuilder(RestonedMain.MOD_ID)
+			.setBlockSound(BlockSounds.STONE)
+			.setHardness(3.5F)
+			.setTags(new Tag[]{BlockTags.MINEABLE_BY_PICKAXE})
+			.build("activator.cobble.granite", blockId++, b -> new BlockLogicActivator(b))
+			.withDisabledNeighborNotifyOnMetadataChange();
+		ACTIVATOR_COBBLE_MARBLE = new BlockBuilder(RestonedMain.MOD_ID)
+			.setBlockSound(BlockSounds.STONE)
+			.setHardness(3.5F)
+			.setTags(new Tag[]{BlockTags.MINEABLE_BY_PICKAXE})
+			.build("activator.cobble.marble", blockId++, b -> new BlockLogicActivator(b))
+			.withDisabledNeighborNotifyOnMetadataChange();
+		ACTIVATOR_COBBLE_SLATE = new BlockBuilder(RestonedMain.MOD_ID)
+			.setBlockSound(BlockSounds.STONE)
+			.setHardness(3.5F)
+			.setTags(new Tag[]{BlockTags.MINEABLE_BY_PICKAXE})
+			.build("activator.cobble.slate", blockId++, b -> new BlockLogicActivator(b))
+			.withDisabledNeighborNotifyOnMetadataChange();
+		ACTIVATOR_COBBLE_PERMAFROST = new BlockBuilder(RestonedMain.MOD_ID)
+			.setBlockSound(BlockSounds.PERMAFROST)
+			.setHardness(3.5F)
+			.setTags(new Tag[]{BlockTags.MINEABLE_BY_PICKAXE})
+			.build("activator.cobble.permafrost", blockId++, b -> new BlockLogicActivator(b))
+			.withDisabledNeighborNotifyOnMetadataChange();
 
 		initBlockDetails();
+		LOGGER.info(String.valueOf(blockId - 11000));
 	}
 }

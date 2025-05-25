@@ -3,6 +3,7 @@ package cursedbread.restoned;
 import net.minecraft.core.block.Block;
 import net.minecraft.core.block.Blocks;
 import net.minecraft.core.data.registry.Registries;
+import net.minecraft.core.item.Item;
 import net.minecraft.core.item.ItemStack;
 import net.minecraft.core.item.Items;
 import turniplabs.halplibe.helper.RecipeBuilder;
@@ -195,13 +196,115 @@ public class RestonedCrafts implements RecipeEntrypoint {
 		RestonedBlocks.NETHERRACK_MOTION_SENSOR_IDLE
 	};
 
+	static Block[] pistonIngr = leverIngr;
+
+	static Block[] pistonResult = {
+		Blocks.PISTON_BASE,
+		RestonedBlocks.BASALT_PISTON_BASE,
+		RestonedBlocks.LIMESTONE_PISTON_BASE,
+		RestonedBlocks.GRANITE_PISTON_BASE,
+		RestonedBlocks.MARBLE_PISTON_BASE,
+		RestonedBlocks.SLATE_PISTON_BASE,
+		RestonedBlocks.PERMAFROST_PISTON_BASE,
+		RestonedBlocks.NETHERRACK_PISTON_BASE
+	};
+
+	static Block[] stickPistonIngr = {
+		RestonedBlocks.BASALT_PISTON_BASE,
+		RestonedBlocks.LIMESTONE_PISTON_BASE,
+		RestonedBlocks.GRANITE_PISTON_BASE,
+		RestonedBlocks.MARBLE_PISTON_BASE,
+		RestonedBlocks.SLATE_PISTON_BASE,
+		RestonedBlocks.PERMAFROST_PISTON_BASE,
+		RestonedBlocks.NETHERRACK_PISTON_BASE
+	};
+
+	static Block[] stickPistonResult = {
+		RestonedBlocks.BASALT_PISTON_BASE_STICKY,
+		RestonedBlocks.LIMESTONE_PISTON_BASE_STICKY,
+		RestonedBlocks.GRANITE_PISTON_BASE_STICKY,
+		RestonedBlocks.MARBLE_PISTON_BASE_STICKY,
+		RestonedBlocks.SLATE_PISTON_BASE_STICKY,
+		RestonedBlocks.PERMAFROST_PISTON_BASE_STICKY,
+		RestonedBlocks.NETHERRACK_PISTON_BASE_STICKY
+	};
+
+	static Block[] reinforcedPistonIngr = buttonIngr;
+
+	static Block[] reinforcedPistonResult = {
+		Blocks.PISTON_BASE_STEEL,
+		RestonedBlocks.BASALT_PISTON_BASE_STEEL,
+		RestonedBlocks.LIMESTONE_PISTON_BASE_STEEL,
+		RestonedBlocks.GRANITE_PISTON_BASE_STEEL,
+		RestonedBlocks.MARBLE_PISTON_BASE_STEEL,
+		RestonedBlocks.SLATE_PISTON_BASE_STEEL,
+		RestonedBlocks.PERMAFROST_PISTON_BASE_STEEL,
+		RestonedBlocks.NETHERRACK_PISTON_BASE_STEEL
+	};
+
+	static Block[] spikesIngr = leverIngr;
+
+	static Block[] spikesResult = {
+		Blocks.SPIKES,
+		RestonedBlocks.BASALT_SPIKES,
+		RestonedBlocks.LIMESTONE_SPIKES,
+		RestonedBlocks.GRANITE_SPIKES,
+		RestonedBlocks.MARBLE_SPIKES,
+		RestonedBlocks.SLATE_SPIKES,
+		RestonedBlocks.PERMAFROST_SPIKES,
+		RestonedBlocks.NETHERRACK_SPIKES
+	};
+
+	static Block[] dispeserIngr = leverIngr;
+
+	static Block[] dispenserResult = {
+		Blocks.DISPENSER_COBBLE_STONE,
+		RestonedBlocks.DISPENSER_COBBLE_BASALT,
+		RestonedBlocks.DISPENSER_COBBLE_LIMESTONE,
+		RestonedBlocks.DISPENSER_COBBLE_GRANITE,
+		RestonedBlocks.DISPENSER_COBBLE_MARBLE,
+		RestonedBlocks.DISPENSER_COBBLE_SLATE,
+		RestonedBlocks.DISPENSER_COBBLE_PERMAFROST,
+		RestonedBlocks.DISPENSER_COBBLE_NETHERRACK
+	};
+
+	static Block[] repeaterIngr = buttonIngr;
+
+	static Item[] repeaterResult = {
+		Items.REPEATER,
+		RestonedItems.REPEATER_BASALT,
+		RestonedItems.REPEATER_LIMESTONE,
+		RestonedItems.REPEATER_GRANITE,
+		RestonedItems.REPEATER_MARBLE,
+		RestonedItems.REPEATER_SLATE,
+		RestonedItems.REPEATER_PERMAFROST,
+		RestonedItems.REPEATER_NETHERRACK
+	};
+
+	static Block[] activatorIngr = leverIngr;
+
+	static Block[] activatorResult = {
+		RestonedBlocks.ACTIVATOR_COBBLE_STONE,
+		RestonedBlocks.ACTIVATOR_COBBLE_BASALT,
+		RestonedBlocks.ACTIVATOR_COBBLE_LIMESTONE,
+		RestonedBlocks.ACTIVATOR_COBBLE_GRANITE,
+		RestonedBlocks.ACTIVATOR_COBBLE_MARBLE,
+		RestonedBlocks.ACTIVATOR_COBBLE_SLATE,
+		RestonedBlocks.ACTIVATOR_COBBLE_PERMAFROST
+	};
+
 	static String[] annihilateVanillaCraft = {
 		"marble_pillar",
 		"marble_slab",
 		"stone_button",
 		"cobblestone_lever",
 		"cobblestone_pressure_plate",
-		"stone_pressure_plate"
+		"stone_pressure_plate",
+		"piston",
+		"steel_piston",
+		"spikes",
+		"dispenser",
+		"redstone_repeater"
 	};
 
 	@Override
@@ -295,6 +398,71 @@ public class RestonedCrafts implements RecipeEntrypoint {
 				.addInput('X', motionIngr[i])
 				.addInput('M', "restoned:motion_sensor")
 				.create("motionsensors", new ItemStack(motionResult[i]));
+		}
+
+		for (int i = 0; i <= pistonResult.length - 1; i++){
+			RecipeBuilder.Shaped(RestonedMain.MOD_ID)
+				.setShape("PPP", "XIX", "XRX")
+				.addInput('P', "minecraft:planks")
+				.addInput('I', Items.INGOT_IRON)
+				.addInput('R', Items.DUST_REDSTONE)
+				.addInput('X', pistonIngr[i])
+				.create("pistons", new ItemStack(pistonResult[i]));
+		}
+
+		for (int i = 0; i <= stickPistonResult.length - 1; i++){
+			RecipeBuilder.Shaped(RestonedMain.MOD_ID)
+				.setShape("S", "X")
+				.addInput('S', Items.SLIMEBALL)
+				.addInput('X', stickPistonIngr[i])
+				.create("stickypistons", new ItemStack(stickPistonResult[i]));
+		}
+
+		for (int i = 0; i <= reinforcedPistonResult.length - 1; i++){
+			RecipeBuilder.Shaped(RestonedMain.MOD_ID)
+				.setShape("PPP", "XIX", "XRX")
+				.addInput('P', Items.INGOT_STEEL_CRUDE)
+				.addInput('I', Items.INGOT_STEEL)
+				.addInput('R', Items.DUST_REDSTONE)
+				.addInput('X', reinforcedPistonIngr[i])
+				.create("reinforcedpistons", new ItemStack(reinforcedPistonResult[i]));
+		}
+
+		for (int i = 0; i <= spikesResult.length - 1; i++){
+			RecipeBuilder.Shaped(RestonedMain.MOD_ID)
+				.setShape(" I ", "IRI", "XXX")
+				.addInput('I', Items.INGOT_IRON)
+				.addInput('R', Items.DUST_REDSTONE)
+				.addInput('X', spikesIngr[i])
+				.create("spikes", new ItemStack(spikesResult[i]));
+		}
+
+		for (int i = 0; i <= dispenserResult.length - 1; i++){
+			RecipeBuilder.Shaped(RestonedMain.MOD_ID)
+				.setShape("XXX", "XBX", "XRX")
+				.addInput('X', dispeserIngr[i])
+				.addInput('B', Items.TOOL_BOW)
+				.addInput('R', Items.DUST_REDSTONE)
+				.create("dispensers", new ItemStack(dispenserResult[i]));
+		}
+
+		for (int i = 0; i <= repeaterResult.length - 1; i++){
+			RecipeBuilder.Shaped(RestonedMain.MOD_ID)
+				.setShape("TRT", "XXX")
+				.addInput('T', Blocks.TORCH_REDSTONE_ACTIVE)
+				.addInput('R', Items.DUST_REDSTONE)
+				.addInput('X', repeaterIngr[i])
+				.create("repeaters", new ItemStack(repeaterResult[i]));
+		}
+
+		for (int i = 0; i <= activatorResult.length - 1; i++){
+			RecipeBuilder.Shaped(RestonedMain.MOD_ID)
+				.setShape("XSX", "XNX", "XRX")
+				.addInput('S', Blocks.SOULSAND)
+				.addInput('N', Items.NETHERCOAL)
+				.addInput('R', Items.DUST_REDSTONE)
+				.addInput('X', activatorIngr[i])
+				.create("acitvators", new ItemStack(activatorResult[i]));
 		}
 	}
 }

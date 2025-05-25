@@ -19,11 +19,13 @@ public class RestonedMain implements ModInitializer, GameStartEntrypoint, Client
 
 	static {
 		TOML.addCategory("IDs")
-			.addEntry("Starting_block_id", 11000);
+			.addEntry("Starting_block_id", 11000)
+			.addEntry("Starting_item_id", 19000);
 
 		CFG = new TomlConfigHandler(MOD_ID, TOML);
 
 		RestonedBlocks.blockId = CFG.getInt("IDs.Starting_block_id");
+		RestonedItems.itemId = CFG.getInt("IDs.Starting_item_id");
 
 	}
 
@@ -31,6 +33,7 @@ public class RestonedMain implements ModInitializer, GameStartEntrypoint, Client
     public void onInitialize() {
         LOGGER.info("Re Stoning");
 		new RestonedBlocks().initBlocks();
+		new RestonedItems().initItems();
 		new RestonedEntities().initilizeEntities();
     }
 
