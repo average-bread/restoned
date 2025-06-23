@@ -2,12 +2,16 @@ package cursedbread.restoned;
 
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.ModInitializer;
+import net.minecraft.client.render.texture.stitcher.TextureRegistry;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import turniplabs.halplibe.util.GameStartEntrypoint;
 import turniplabs.halplibe.util.RecipeEntrypoint;
 import turniplabs.halplibe.util.TomlConfigHandler;
 import turniplabs.halplibe.util.toml.Toml;
+
+import java.io.IOException;
+import java.net.URISyntaxException;
 
 
 public class RestonedMain implements ModInitializer, GameStartEntrypoint, ClientModInitializer {
@@ -39,7 +43,11 @@ public class RestonedMain implements ModInitializer, GameStartEntrypoint, Client
 
 	@Override
 	public void beforeGameStart() {
-
+		try {
+			TextureRegistry.initializeAllFiles(MOD_ID, TextureRegistry.blockAtlas, true);
+		} catch (URISyntaxException | IOException e) {
+			throw new RuntimeException(e);
+		}
 	}
 
 	@Override

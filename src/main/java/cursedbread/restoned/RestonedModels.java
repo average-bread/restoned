@@ -852,6 +852,105 @@ public class RestonedModels  implements ModelEntrypoint {
 				.setTex(0, "restoned:block/activators/permafrost/bottom", Side.BOTTOM)
 				.setTex(0, "restoned:block/activators/permafrost/front", Side.SOUTH)
 		);
+
+//		ModelHelper.setBlockModel(RestonedBlocks.FURNACE_BASALT_IDLE,
+//			() -> new BlockModelFurnace<>(RestonedBlocks.FURNACE_BASALT_IDLE)
+//				.setTex(0, "restoned:block/furnaces/basalt/side", Side.sides)
+//				.setTex(0, "restoned:block/furnaces/basalt/top", Side.TOP)
+//				.setTex(0, "restoned:block/furnaces/basalt/bottom", Side.BOTTOM)
+//				.setTex(0, "restoned:block/furnaces/basalt/idle_front", Side.NORTH)
+//		);
+//		ModelHelper.setBlockModel(RestonedBlocks.FURNACE_BASALT_ACTIVE,
+//			() -> new BlockModelFurnace<>(RestonedBlocks.FURNACE_BASALT_ACTIVE)
+//				.setTex(0, "restoned:block/furnaces/basalt/side", Side.sides)
+//				.setTex(0, "restoned:block/furnaces/basalt/top", Side.TOP)
+//				.setTex(0, "restoned:block/furnaces/basalt/bottom", Side.BOTTOM)
+//				.setTex(0, "restoned:block/furnaces/basalt/active_front", Side.NORTH)
+//		);
+//		ModelHelper.setBlockModel(RestonedBlocks.FURNACE_LIMESTONE_IDLE,
+//			() -> new BlockModelFurnace<>(RestonedBlocks.FURNACE_LIMESTONE_IDLE)
+//				.setTex(0, "restoned:block/furnaces/limestone/side", Side.sides)
+//				.setTex(0, "restoned:block/furnaces/limestone/top", Side.TOP)
+//				.setTex(0, "restoned:block/furnaces/limestone/bottom", Side.BOTTOM)
+//				.setTex(0, "restoned:block/furnaces/limestone/idle_front", Side.NORTH)
+//		);
+//		ModelHelper.setBlockModel(RestonedBlocks.FURNACE_LIMESTONE_ACTIVE,
+//			() -> new BlockModelFurnace<>(RestonedBlocks.FURNACE_LIMESTONE_ACTIVE)
+//				.setTex(0, "restoned:block/furnaces/limestone/side", Side.sides)
+//				.setTex(0, "restoned:block/furnaces/limestone/top", Side.TOP)
+//				.setTex(0, "restoned:block/furnaces/limestone/bottom", Side.BOTTOM)
+//				.setTex(0, "restoned:block/furnaces/limestone/active_front", Side.NORTH)
+//		);
+//		ModelHelper.setBlockModel(RestonedBlocks.FURNACE_GRANITE_IDLE,
+//			() -> new BlockModelFurnace<>(RestonedBlocks.FURNACE_GRANITE_IDLE)
+//				.setTex(0, "restoned:block/furnaces/granite/side", Side.sides)
+//				.setTex(0, "restoned:block/furnaces/granite/top", Side.TOP)
+//				.setTex(0, "restoned:block/furnaces/granite/bottom", Side.BOTTOM)
+//				.setTex(0, "restoned:block/furnaces/granite/idle_front", Side.NORTH)
+//		);
+//		ModelHelper.setBlockModel(RestonedBlocks.FURNACE_GRANITE_ACTIVE,
+//			() -> new BlockModelFurnace<>(RestonedBlocks.FURNACE_GRANITE_ACTIVE)
+//				.setTex(0, "restoned:block/furnaces/granite/side", Side.sides)
+//				.setTex(0, "restoned:block/furnaces/granite/top", Side.TOP)
+//				.setTex(0, "restoned:block/furnaces/granite/bottom", Side.BOTTOM)
+//				.setTex(0, "restoned:block/furnaces/granite/active_front", Side.NORTH)
+//		);
+//		ModelHelper.setBlockModel(RestonedBlocks.FURNACE_MARBLE_IDLE,
+//			() -> new BlockModelFurnace<>(RestonedBlocks.FURNACE_MARBLE_IDLE)
+//				.setTex(0, "restoned:block/furnaces/marble/side", Side.sides)
+//				.setTex(0, "restoned:block/furnaces/marble/top", Side.TOP)
+//				.setTex(0, "restoned:block/furnaces/marble/bottom", Side.BOTTOM)
+//				.setTex(0, "restoned:block/furnaces/marble/idle_front", Side.NORTH)
+//		);
+//		ModelHelper.setBlockModel(RestonedBlocks.FURNACE_MARBLE_ACTIVE,
+//			() -> new BlockModelFurnace<>(RestonedBlocks.FURNACE_MARBLE_ACTIVE)
+//				.setTex(0, "restoned:block/furnaces/marble/side", Side.sides)
+//				.setTex(0, "restoned:block/furnaces/marble/top", Side.TOP)
+//				.setTex(0, "restoned:block/furnaces/marble/bottom", Side.BOTTOM)
+//				.setTex(0, "restoned:block/furnaces/marble/active_front", Side.NORTH)
+//		);
+//		ModelHelper.setBlockModel(RestonedBlocks.FURNACE_SLATE_IDLE,
+//			() -> new BlockModelFurnace<>(RestonedBlocks.FURNACE_SLATE_IDLE)
+//				.setTex(0, "restoned:block/furnaces/slate/side", Side.sides)
+//				.setTex(0, "restoned:block/furnaces/slate/top", Side.TOP)
+//				.setTex(0, "restoned:block/furnaces/slate/bottom", Side.BOTTOM)
+//				.setTex(0, "restoned:block/furnaces/slate/idle_front", Side.NORTH)
+//		);
+//		ModelHelper.setBlockModel(RestonedBlocks.FURNACE_SLATE_ACTIVE,
+//			() -> new BlockModelFurnace<>(RestonedBlocks.FURNACE_SLATE_ACTIVE)
+//				.setTex(0, "restoned:block/furnaces/slate/side", Side.sides)
+//				.setTex(0, "restoned:block/furnaces/slate/top", Side.TOP)
+//				.setTex(0, "restoned:block/furnaces/slate/bottom", Side.BOTTOM)
+//				.setTex(0, "restoned:block/furnaces/slate/active_front", Side.NORTH)
+//		);
+//		ModelHelper.setBlockModel(RestonedBlocks.FURNACE_PERMAFROST_IDLE,
+//			() -> new BlockModelFurnace<>(RestonedBlocks.FURNACE_PERMAFROST_IDLE)
+//				.setTex(0, "restoned:block/furnaces/permafrost/side", Side.sides)
+//				.setTex(0, "restoned:block/furnaces/permafrost/top", Side.TOP)
+//				.setTex(0, "restoned:block/furnaces/permafrost/bottom", Side.BOTTOM)
+//				.setTex(0, "restoned:block/furnaces/permafrost/idle_front", Side.NORTH)
+//		);
+//		ModelHelper.setBlockModel(RestonedBlocks.FURNACE_PERMAFROST_ACTIVE,
+//			() -> new BlockModelFurnace<>(RestonedBlocks.FURNACE_PERMAFROST_ACTIVE)
+//				.setTex(0, "restoned:block/furnaces/permafrost/side", Side.sides)
+//				.setTex(0, "restoned:block/furnaces/permafrost/top", Side.TOP)
+//				.setTex(0, "restoned:block/furnaces/permafrost/bottom", Side.BOTTOM)
+//				.setTex(0, "restoned:block/furnaces/permafrost/active_front", Side.NORTH)
+//		);
+//		ModelHelper.setBlockModel(RestonedBlocks.FURNACE_NETHERRACK_IDLE,
+//			() -> new BlockModelFurnace<>(RestonedBlocks.FURNACE_NETHERRACK_IDLE)
+//				.setTex(0, "restoned:block/furnaces/netherrack/side", Side.sides)
+//				.setTex(0, "restoned:block/furnaces/netherrack/top", Side.TOP)
+//				.setTex(0, "restoned:block/furnaces/netherrack/bottom", Side.BOTTOM)
+//				.setTex(0, "restoned:block/furnaces/netherrack/idle_front", Side.NORTH)
+//		);
+//		ModelHelper.setBlockModel(RestonedBlocks.FURNACE_NETHERRACK_ACTIVE,
+//			() -> new BlockModelFurnace<>(RestonedBlocks.FURNACE_NETHERRACK_ACTIVE)
+//				.setTex(0, "restoned:block/furnaces/netherrack/side", Side.sides)
+//				.setTex(0, "restoned:block/furnaces/netherrack/top", Side.TOP)
+//				.setTex(0, "restoned:block/furnaces/netherrack/bottom", Side.BOTTOM)
+//				.setTex(0, "restoned:block/furnaces/netherrack/active_front", Side.NORTH)
+//		);
 	}
 
 	@Override

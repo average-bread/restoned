@@ -293,6 +293,25 @@ public class RestonedCrafts implements RecipeEntrypoint {
 		RestonedBlocks.ACTIVATOR_COBBLE_PERMAFROST
 	};
 
+	static Block[] furnaceIngr = leverIngr;
+
+	static Block[] furnaceResult = {
+		Blocks.FURNACE_STONE_IDLE,
+		RestonedBlocks.FURNACE_BASALT_IDLE,
+		RestonedBlocks.FURNACE_LIMESTONE_IDLE,
+		RestonedBlocks.FURNACE_GRANITE_IDLE,
+		RestonedBlocks.FURNACE_MARBLE_IDLE,
+		RestonedBlocks.FURNACE_SLATE_IDLE,
+		RestonedBlocks.FURNACE_PERMAFROST_IDLE,
+		RestonedBlocks.FURNACE_NETHERRACK_IDLE
+	};
+
+	static Block[] trommelIngr = leverIngr;
+
+	static Block[] trommelResult = {
+		Blocks.TROMMEL_IDLE
+	};
+
 	static String[] annihilateVanillaCraft = {
 		"marble_pillar",
 		"marble_slab",
@@ -304,7 +323,9 @@ public class RestonedCrafts implements RecipeEntrypoint {
 		"steel_piston",
 		"spikes",
 		"dispenser",
-		"redstone_repeater"
+		"redstone_repeater",
+		"furnace",
+		"trommel"
 	};
 
 	@Override
@@ -464,5 +485,21 @@ public class RestonedCrafts implements RecipeEntrypoint {
 				.addInput('X', activatorIngr[i])
 				.create("acitvators", new ItemStack(activatorResult[i]));
 		}
+
+//		for (int i = 0; i <= furnaceResult.length - 1; i++){
+//			RecipeBuilder.Shaped(RestonedMain.MOD_ID)
+//				.setShape("XXX", "X X", "XXX")
+//				.addInput('X', furnaceIngr[i])
+//				.create("furnaces", new ItemStack(furnaceResult[i]));
+//		}
+//
+//		for (int i = 0; i <= trommelResult.length - 1; i++){
+//			RecipeBuilder.Shaped(RestonedMain.MOD_ID)
+//				.setShape("XXX", "XMX", "LLL")
+//				.addInput('X', trommelIngr[i])
+//				.addInput('M', Blocks.MESH)
+//				.addInput('L', "minecraft:logs")
+//				.create("furnaces", new ItemStack(trommelResult[i]));
+//		}
 	}
 }

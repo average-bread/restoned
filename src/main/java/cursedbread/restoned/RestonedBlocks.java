@@ -1,7 +1,9 @@
 package cursedbread.restoned;
 
+import cursedbread.restoned.logics.BlockLogicCustomFurnace;
 import cursedbread.restoned.logics.BlockLogicCustomMotionSensor;
 import cursedbread.restoned.logics.BlockLogicCustomRepeater;
+import net.minecraft.client.render.block.color.BlockColor;
 import net.minecraft.core.block.*;
 import net.minecraft.core.block.material.Material;
 import net.minecraft.core.block.material.MaterialColor;
@@ -187,6 +189,36 @@ public class RestonedBlocks {
 	public static Block<?> ACTIVATOR_COBBLE_MARBLE;
 	public static Block<?> ACTIVATOR_COBBLE_SLATE;
 	public static Block<?> ACTIVATOR_COBBLE_PERMAFROST;
+
+	public static Block<?> FURNACE_BASALT_IDLE;
+	public static Block<?> FURNACE_BASALT_ACTIVE;
+	public static Block<?> FURNACE_LIMESTONE_IDLE;
+	public static Block<?> FURNACE_LIMESTONE_ACTIVE;
+	public static Block<?> FURNACE_GRANITE_IDLE;
+	public static Block<?> FURNACE_GRANITE_ACTIVE;
+	public static Block<?> FURNACE_MARBLE_IDLE;
+	public static Block<?> FURNACE_MARBLE_ACTIVE;
+	public static Block<?> FURNACE_SLATE_IDLE;
+	public static Block<?> FURNACE_SLATE_ACTIVE;
+	public static Block<?> FURNACE_PERMAFROST_IDLE;
+	public static Block<?> FURNACE_PERMAFROST_ACTIVE;
+	public static Block<?> FURNACE_NETHERRACK_IDLE;
+	public static Block<?> FURNACE_NETHERRACK_ACTIVE;
+
+	public static Block<?> TROMMEL_BASALT_IDLE;
+	public static Block<?> TROMMEL_BASALT_ACTIVE;
+	public static Block<?> TROMMEL_LIMESTONE_IDLE;
+	public static Block<?> TROMMEL_LIMESTONE_ACTIVE;
+	public static Block<?> TROMMEL_GRANITE_IDLE;
+	public static Block<?> TROMMEL_GRANITE_ACTIVE;
+	public static Block<?> TROMMEL_MARBLE_IDLE;
+	public static Block<?> TROMMEL_MARBLE_ACTIVE;
+	public static Block<?> TROMMEL_SLATE_IDLE;
+	public static Block<?> TROMMEL_SLATE_ACTIVE;
+	public static Block<?> TROMMEL_PERMAFROST_IDLE;
+	public static Block<?> TROMMEL_PERMAFROST_ACTIVE;
+	public static Block<?> TROMMEL_NETHERRACK_IDLE;
+	public static Block<?> TROMMEL_NETHERRACK_ACTIVE;
 
 	public void initBlockDetails(){
 
@@ -1210,6 +1242,147 @@ public class RestonedBlocks {
 			.setTags(new Tag[]{BlockTags.MINEABLE_BY_PICKAXE})
 			.build("activator.cobble.permafrost", blockId++, b -> new BlockLogicActivator(b))
 			.withDisabledNeighborNotifyOnMetadataChange();
+
+//		FURNACE_BASALT_IDLE = new BlockBuilder(RestonedMain.MOD_ID)
+//			.setBlockSound(BlockSounds.STONE)
+//			.setHardness(3.5F)
+//			.setTags(new Tag[]{BlockTags.MINEABLE_BY_PICKAXE})
+//			.build("furnace.basalt.idle", blockId++, b -> new BlockLogicCustomFurnace(b,
+//				false,
+//				FURNACE_BASALT_IDLE,
+//				FURNACE_BASALT_ACTIVE))
+//			.withDisabledNeighborNotifyOnMetadataChange();
+//		FURNACE_BASALT_ACTIVE = new BlockBuilder(RestonedMain.MOD_ID)
+//			.setBlockSound(BlockSounds.STONE)
+//			.setHardness(3.5F)
+//			.build("furnace.basalt.active", blockId++, b -> new BlockLogicCustomFurnace(b,
+//				true,
+//				FURNACE_BASALT_IDLE,
+//				FURNACE_BASALT_ACTIVE))
+//			.withLightEmission(0.875F)
+//			.withTags(new Tag[]{BlockTags.NOT_IN_CREATIVE_MENU, BlockTags.MINEABLE_BY_PICKAXE})
+//			.withDisabledNeighborNotifyOnMetadataChange()
+//			.setStatParent(() -> {return FURNACE_BASALT_IDLE;});
+//		FURNACE_LIMESTONE_IDLE = new BlockBuilder(RestonedMain.MOD_ID)
+//			.setBlockSound(BlockSounds.STONE)
+//			.setHardness(3.5F)
+//			.setTags(new Tag[]{BlockTags.MINEABLE_BY_PICKAXE})
+//			.build("furnace.limestone.idle", blockId++, b -> new BlockLogicCustomFurnace(b,
+//				false,
+//				FURNACE_LIMESTONE_IDLE,
+//				FURNACE_LIMESTONE_ACTIVE))
+//			.withDisabledNeighborNotifyOnMetadataChange();
+//		FURNACE_LIMESTONE_ACTIVE = new BlockBuilder(RestonedMain.MOD_ID)
+//			.setBlockSound(BlockSounds.STONE)
+//			.setHardness(3.5F)
+//			.build("furnace.limestone.active", blockId++, b -> new BlockLogicCustomFurnace(b,
+//				true,
+//				FURNACE_LIMESTONE_IDLE,
+//				FURNACE_LIMESTONE_ACTIVE))
+//			.withLightEmission(0.875F)
+//			.withTags(new Tag[]{BlockTags.NOT_IN_CREATIVE_MENU, BlockTags.MINEABLE_BY_PICKAXE})
+//			.withDisabledNeighborNotifyOnMetadataChange()
+//			.setStatParent(() -> {return FURNACE_LIMESTONE_IDLE;});
+//		FURNACE_GRANITE_IDLE = new BlockBuilder(RestonedMain.MOD_ID)
+//			.setBlockSound(BlockSounds.STONE)
+//			.setHardness(3.5F)
+//			.setTags(new Tag[]{BlockTags.MINEABLE_BY_PICKAXE})
+//			.build("furnace.granite.idle", blockId++, b -> new BlockLogicCustomFurnace(b,
+//				false,
+//				FURNACE_GRANITE_IDLE,
+//				FURNACE_GRANITE_ACTIVE))
+//			.withDisabledNeighborNotifyOnMetadataChange();
+//		FURNACE_GRANITE_ACTIVE = new BlockBuilder(RestonedMain.MOD_ID)
+//			.setBlockSound(BlockSounds.STONE)
+//			.setHardness(3.5F)
+//			.build("furnace.granite.active", blockId++, b -> new BlockLogicCustomFurnace(b,
+//				false,
+//				FURNACE_GRANITE_IDLE,
+//				FURNACE_GRANITE_ACTIVE))
+//			.withLightEmission(0.875F)
+//			.withTags(new Tag[]{BlockTags.NOT_IN_CREATIVE_MENU, BlockTags.MINEABLE_BY_PICKAXE})
+//			.withDisabledNeighborNotifyOnMetadataChange()
+//			.setStatParent(() -> {return FURNACE_GRANITE_IDLE;});
+//		FURNACE_MARBLE_IDLE = new BlockBuilder(RestonedMain.MOD_ID)
+//			.setBlockSound(BlockSounds.STONE)
+//			.setHardness(3.5F)
+//			.setTags(new Tag[]{BlockTags.MINEABLE_BY_PICKAXE})
+//			.build("furnace.marble.idle", blockId++, b -> new BlockLogicCustomFurnace(b,
+//				false,
+//				FURNACE_MARBLE_IDLE,
+//				FURNACE_MARBLE_ACTIVE))
+//			.withDisabledNeighborNotifyOnMetadataChange();
+//		FURNACE_MARBLE_ACTIVE = new BlockBuilder(RestonedMain.MOD_ID)
+//			.setBlockSound(BlockSounds.STONE)
+//			.setHardness(3.5F)
+//			.build("furnace.marble.active", blockId++, b -> new BlockLogicCustomFurnace(b,
+//				false,
+//				FURNACE_MARBLE_IDLE,
+//				FURNACE_MARBLE_ACTIVE))
+//			.withLightEmission(0.875F)
+//			.withTags(new Tag[]{BlockTags.NOT_IN_CREATIVE_MENU, BlockTags.MINEABLE_BY_PICKAXE})
+//			.withDisabledNeighborNotifyOnMetadataChange()
+//			.setStatParent(() -> {return FURNACE_MARBLE_IDLE;});
+//		FURNACE_SLATE_IDLE = new BlockBuilder(RestonedMain.MOD_ID)
+//			.setBlockSound(BlockSounds.STONE)
+//			.setHardness(3.5F)
+//			.setTags(new Tag[]{BlockTags.MINEABLE_BY_PICKAXE})
+//			.build("furnace.slate.idle", blockId++, b -> new BlockLogicCustomFurnace(b,
+//				false,
+//				FURNACE_SLATE_IDLE,
+//				FURNACE_SLATE_ACTIVE))
+//			.withDisabledNeighborNotifyOnMetadataChange();
+//		FURNACE_SLATE_ACTIVE = new BlockBuilder(RestonedMain.MOD_ID)
+//			.setBlockSound(BlockSounds.STONE)
+//			.setHardness(3.5F)
+//			.build("furnace.slate.active", blockId++, b -> new BlockLogicCustomFurnace(b,
+//				false,
+//				FURNACE_SLATE_IDLE,
+//				FURNACE_SLATE_ACTIVE))
+//			.withLightEmission(0.875F)
+//			.withTags(new Tag[]{BlockTags.NOT_IN_CREATIVE_MENU, BlockTags.MINEABLE_BY_PICKAXE})
+//			.withDisabledNeighborNotifyOnMetadataChange()
+//			.setStatParent(() -> {return FURNACE_SLATE_IDLE;});
+//		FURNACE_PERMAFROST_IDLE = new BlockBuilder(RestonedMain.MOD_ID)
+//			.setBlockSound(BlockSounds.STONE)
+//			.setHardness(3.5F)
+//			.setTags(new Tag[]{BlockTags.MINEABLE_BY_PICKAXE})
+//			.build("furnace.permafrost.idle", blockId++, b -> new BlockLogicCustomFurnace(b,
+//				false,
+//				FURNACE_PERMAFROST_IDLE,
+//				FURNACE_PERMAFROST_ACTIVE))
+//			.withDisabledNeighborNotifyOnMetadataChange();
+//		FURNACE_PERMAFROST_ACTIVE = new BlockBuilder(RestonedMain.MOD_ID)
+//			.setBlockSound(BlockSounds.STONE)
+//			.setHardness(3.5F)
+//			.build("furnace.permafrost.active", blockId++, b -> new BlockLogicCustomFurnace(b,
+//				false,
+//				FURNACE_PERMAFROST_IDLE,
+//				FURNACE_PERMAFROST_ACTIVE))
+//			.withLightEmission(0.875F)
+//			.withTags(new Tag[]{BlockTags.NOT_IN_CREATIVE_MENU, BlockTags.MINEABLE_BY_PICKAXE})
+//			.withDisabledNeighborNotifyOnMetadataChange()
+//			.setStatParent(() -> {return FURNACE_PERMAFROST_IDLE;});
+//		FURNACE_NETHERRACK_IDLE = new BlockBuilder(RestonedMain.MOD_ID)
+//			.setBlockSound(BlockSounds.STONE)
+//			.setHardness(3.5F)
+//			.setTags(new Tag[]{BlockTags.MINEABLE_BY_PICKAXE, BlockTags.INFINITE_BURN})
+//			.build("furnace.netherrack.idle", blockId++, b -> new BlockLogicCustomFurnace(b,
+//				false,
+//				FURNACE_NETHERRACK_IDLE,
+//				FURNACE_NETHERRACK_ACTIVE))
+//			.withDisabledNeighborNotifyOnMetadataChange();
+//		FURNACE_NETHERRACK_ACTIVE = new BlockBuilder(RestonedMain.MOD_ID)
+//			.setBlockSound(BlockSounds.STONE)
+//			.setHardness(3.5F)
+//			.build("furnace.netherrack.active", blockId++, b -> new BlockLogicCustomFurnace(b,
+//				false,
+//				FURNACE_NETHERRACK_IDLE,
+//				FURNACE_NETHERRACK_ACTIVE))
+//			.withLightEmission(0.875F)
+//			.withTags(new Tag[]{BlockTags.NOT_IN_CREATIVE_MENU, BlockTags.MINEABLE_BY_PICKAXE, BlockTags.INFINITE_BURN})
+//			.withDisabledNeighborNotifyOnMetadataChange()
+//			.setStatParent(() -> {return FURNACE_NETHERRACK_IDLE;});
 
 		initBlockDetails();
 		LOGGER.info(String.valueOf(blockId - 11000));
