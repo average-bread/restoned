@@ -323,9 +323,7 @@ public class RestonedCrafts implements RecipeEntrypoint {
 		"steel_piston",
 		"spikes",
 		"dispenser",
-		"redstone_repeater",
-		"furnace",
-		"trommel"
+		"redstone_repeater"
 	};
 
 	@Override
