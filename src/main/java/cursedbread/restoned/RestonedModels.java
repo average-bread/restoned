@@ -702,7 +702,7 @@ public class RestonedModels  implements ModelEntrypoint {
 		);
 		ModelHelper.setBlockModel(RestonedBlocks.REPEATER_ACTIVE_MARBLE,
 			() -> new BlockModelRepeater(RestonedBlocks.REPEATER_ACTIVE_MARBLE)
-				.setTex(0, "restoned:block/polished_and_carved//polished_marble_top", Side.sides)
+				.setTex(0, "restoned:block/polished_and_carved/polished_marble_top", Side.sides)
 				.setTex(0, "restoned:block/repeaters/marble/active_top", Side.TOP)
 				.setTex(0, "restoned:block/repeaters/marble/active_top", Side.BOTTOM)
 				.setAllTextures(1, "minecraft:block/repeater/active_overlay")
@@ -957,43 +957,43 @@ public class RestonedModels  implements ModelEntrypoint {
 	public void initItemModels(ItemModelDispatcher dispatcher) {
 		ModelHelper.setItemModel(RestonedItems.REPEATER_BASALT,
 			() -> {
-				ItemModelStandard model = new ItemModelStandard(RestonedItems.REPEATER_BASALT, RestonedMain.MOD_ID);
+				ItemModelStandard model = new ItemModelStandard(RestonedItems.REPEATER_BASALT, null);
 				model.icon = TextureRegistry.getTexture(RestonedItems.REPEATER_BASALT.namespaceID);
 				return model;
 		});
 		ModelHelper.setItemModel(RestonedItems.REPEATER_LIMESTONE,
 			() -> {
-				ItemModelStandard model = new ItemModelStandard(RestonedItems.REPEATER_LIMESTONE, RestonedMain.MOD_ID);
+				ItemModelStandard model = new ItemModelStandard(RestonedItems.REPEATER_LIMESTONE, null);
 				model.icon = TextureRegistry.getTexture(RestonedItems.REPEATER_LIMESTONE.namespaceID);
 				return model;
 			});
 		ModelHelper.setItemModel(RestonedItems.REPEATER_GRANITE,
 			() -> {
-				ItemModelStandard model = new ItemModelStandard(RestonedItems.REPEATER_GRANITE, RestonedMain.MOD_ID);
+				ItemModelStandard model = new ItemModelStandard(RestonedItems.REPEATER_GRANITE, null);
 				model.icon = TextureRegistry.getTexture(RestonedItems.REPEATER_GRANITE.namespaceID);
 				return model;
 			});
 		ModelHelper.setItemModel(RestonedItems.REPEATER_MARBLE,
 			() -> {
-				ItemModelStandard model = new ItemModelStandard(RestonedItems.REPEATER_MARBLE, RestonedMain.MOD_ID);
+				ItemModelStandard model = new ItemModelStandard(RestonedItems.REPEATER_MARBLE, null);
 				model.icon = TextureRegistry.getTexture(RestonedItems.REPEATER_MARBLE.namespaceID);
 				return model;
 			});
 		ModelHelper.setItemModel(RestonedItems.REPEATER_SLATE,
 			() -> {
-				ItemModelStandard model = new ItemModelStandard(RestonedItems.REPEATER_SLATE, RestonedMain.MOD_ID);
+				ItemModelStandard model = new ItemModelStandard(RestonedItems.REPEATER_SLATE, null);
 				model.icon = TextureRegistry.getTexture(RestonedItems.REPEATER_SLATE.namespaceID);
 				return model;
 			});
 		ModelHelper.setItemModel(RestonedItems.REPEATER_PERMAFROST,
 			() -> {
-				ItemModelStandard model = new ItemModelStandard(RestonedItems.REPEATER_PERMAFROST, RestonedMain.MOD_ID);
+				ItemModelStandard model = new ItemModelStandard(RestonedItems.REPEATER_PERMAFROST, null);
 				model.icon = TextureRegistry.getTexture(RestonedItems.REPEATER_PERMAFROST.namespaceID);
 				return model;
 			});
 		ModelHelper.setItemModel(RestonedItems.REPEATER_NETHERRACK,
 			() -> {
-				ItemModelStandard model = new ItemModelStandard(RestonedItems.REPEATER_NETHERRACK, RestonedMain.MOD_ID);
+				ItemModelStandard model = new ItemModelStandard(RestonedItems.REPEATER_NETHERRACK, null);
 				model.icon = TextureRegistry.getTexture(RestonedItems.REPEATER_NETHERRACK.namespaceID);
 				return model;
 			});
